@@ -237,12 +237,12 @@ img.img-no-crop{
 
 /* Stat-primary variant (about page) — keep accent border tint, flat */
 .stat.stat-primary{
-  border-color:rgba(31,111,176,0.22);
+  border-color:rgba(14,77,63,0.22);
   box-shadow:none;
   background:#fff;
 }
 .stat.stat-primary:hover{
-  border-color:rgba(31,111,176,0.36);
+  border-color:rgba(14,77,63,0.36);
   box-shadow:none;
 }
 
