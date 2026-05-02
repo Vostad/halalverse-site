@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 40" role="img" aria-label="Digital Finance Summit">
+  <title>Digital Finance Summit</title>
+
+  <!-- Mark (left) -->
+  <rect width="40" height="40" rx="6" fill="#0A1B3D"/>
+  <rect x="9" y="10" width="3" height="18" fill="#FFFFFF"/>
+  <path d="M 12 10 L 15 10 C 18.5 10 20 13 20 19 C 20 25 18.5 28 15 28 L 12 28 Z" fill="#FFFFFF"/>
+  <rect x="23" y="10" width="3" height="18" fill="#FFFFFF"/>
+  <rect x="23" y="10" width="9" height="3" fill="#FFFFFF"/>
+  <rect x="23" y="18" width="6" height="2.5" fill="#1B3FFF"/>
+
+  <!-- Wordmark (right) -->
+  <text x="54" y="23"
+        font-family="'Inter Tight', 'Inter', -apple-system, system-ui, sans-serif"
+        font-size="15" font-weight="600" fill="#0A1B3D"
+        letter-spacing="-0.3">Digital Finance Summit</text>
+  <text x="54" y="35"
+        font-family="'JetBrains Mono', 'SF Mono', Menlo, monospace"
+        font-size="9" font-weight="500" fill="#7A8AA8"
+        letter-spacing="1.4">EDITION 11 · 2026</text>
+</svg>

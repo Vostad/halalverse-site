@@ -1,0 +1,295 @@
+/* ============================================================
+   IMAGE SYSTEM — Digital Finance Alliance
+   Strict, site-wide. Three canonical types. Faces preserved.
+   Loaded AFTER per-page <style> so utility classes win on ties.
+   ============================================================ */
+
+/* --- Container utilities (apply to wrapper around <img>) ---
+   Use to enforce a canonical aspect ratio on a media frame.
+   Pair with the matching img class for correct cropping. */
+
+.img-frame{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  background:#E7EBF0;
+}
+.img-frame.is-hero{aspect-ratio:16/9;}
+.img-frame.is-portrait{aspect-ratio:3/4;}
+.img-frame.is-content{aspect-ratio:4/3;}
+
+/* --- Image utilities (apply directly to <img>) ---
+   These win against per-page rules of equal specificity
+   because this stylesheet loads after inline <style>.
+   "img.img-*" gives specificity (0,2,0) — matches typical
+   ".class img" rules and resolves by document order. */
+
+img.img-hero,
+img.img-portrait,
+img.img-content{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:100%;
+}
+
+/* HERO — banner / cinematic / 16:9
+   Faces preserved in upper third. */
+img.img-hero{
+  object-fit:cover;
+  object-position:50% 30%;
+}
+
+/* PORTRAIT / PEOPLE — 3:4
+   Face is held within the top 40% of the frame.
+   object-position 22% keeps the head, eyes, and shoulders
+   safely above the lower-third crop line. */
+img.img-portrait{
+  object-fit:cover;
+  object-position:50% 22%;
+}
+
+/* CONTENT / WIDE / EDITORIAL — 4:3
+   Faces in scenes typically sit above the optical center;
+   center-position is safe at 4:3 because vertical crop is mild. */
+img.img-content{
+  object-fit:cover;
+  object-position:50% 45%;
+}
+
+/* --- Per-frame opt-in modifiers ---
+   When markup uses an existing media wrapper (e.g.
+   .auth-visual, .assembly-media, .voice-media, .council-visual)
+   add one of these helper classes on the <img> to enforce
+   safe face cropping without changing the wrapper. */
+
+img.face-safe-top{
+  object-fit:cover;
+  object-position:50% 22%;
+}
+img.face-safe-upper{
+  object-fit:cover;
+  object-position:50% 30%;
+}
+
+/* --- Reduced-motion / contain mode ---
+   Use when an image must NEVER crop (logos, full-frame people).
+   The frame keeps its aspect ratio; the image letterboxes inside. */
+
+img.img-portrait--contain,
+img.img-no-crop{
+  object-fit:contain;
+  object-position:center;
+  background:#F4F6F8;
+}
+
+/* --- Container retrofits ---
+   These selectors override aspect-ratio on existing wrappers
+   used across the site so all frames conform to the system.
+   Higher-specificity overrides where required. */
+
+/* .assembly-media is a CONTENT frame */
+.assembly-media{aspect-ratio:4/3;}
+.assembly-media > img{
+  object-fit:cover;
+  object-position:50% 45%;
+}
+
+/* .voice-media is a HERO-style frame */
+.voice-media{aspect-ratio:16/9;}
+.voice-media > img{
+  object-fit:cover;
+  object-position:50% 30%;
+}
+
+/* ============================================================
+   INSTITUTIONAL EDITORIAL FRAMES — LANDSCAPE 4:3
+   Side-by-side image+text sections sitewide.
+   - aspect-ratio:4/3, capped via max-height
+   - border-radius:0 (sharp corners)
+   - 1px hairline border, no soft shadow
+   - object-position:center top — preserves faces
+   - Subtle 1.02 hover scale on desktop only
+   Hero video, logo grids, footer, and event-card grids are NOT
+   affected by this block.
+   ============================================================ */
+.auth-visual,
+.council-visual,
+.positioning-media,
+.beyond-media,
+.global-stage-media{
+  aspect-ratio:4/3;
+  width:100%;
+  max-width:none;
+  max-height:520px;
+  margin:0;
+  height:auto;
+  position:relative;
+  overflow:hidden;
+  border-radius:0;
+  border:none;
+  background:#F4F6F8;
+  box-shadow:none;
+}
+
+.auth-visual > img,
+.council-visual > img,
+.positioning-media > img,
+.beyond-media > img,
+.global-stage-media > img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  transition:transform .4s ease;
+}
+
+@media (hover:hover) and (min-width:961px){
+  .auth-visual:hover > img,
+  .council-visual:hover > img,
+  .positioning-media:hover > img,
+  .beyond-media:hover > img,
+  .global-stage-media:hover > img{
+    transform:scale(1.02);
+  }
+}
+
+@media (max-width:960px){
+  .auth-visual,
+  .council-visual,
+  .positioning-media,
+  .beyond-media,
+  .global-stage-media{
+    max-height:460px;
+  }
+}
+
+@media (max-width:560px){
+  .auth-visual,
+  .council-visual,
+  .positioning-media,
+  .beyond-media,
+  .global-stage-media{
+    max-height:320px;
+  }
+}
+
+/* --- Universal wrapper utility (one-off frames) --- */
+.image-wrap{
+  position:relative;
+  overflow:hidden;
+  border-radius:0;
+  border:1px solid rgba(0,0,0,0.06);
+  background:#F4F6F8;
+}
+.image-wrap > img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+}
+.image-wrap.image-hero{aspect-ratio:16/9;}
+.image-wrap.image-hero > img{object-position:50% 30%;}
+.image-wrap.image-portrait{aspect-ratio:3/4;}
+.image-wrap.image-portrait > img{object-position:center top;}
+.image-wrap.image-content{aspect-ratio:4/3;}
+.image-wrap.image-content > img{object-position:center;}
+
+/* ============================================================
+   INSTITUTIONAL VISUAL SYSTEM — CONTROLLED OVERRIDES
+   Removes "soft / cardy" UI from non-event components.
+   - border-radius → 0 on cards/wrappers (NOT event cards)
+   - box-shadow → 0 on cards (NOT buttons, NOT event cards)
+   - 1px hairline borders replace soft shadow elevation
+   STRICT EXCLUSION: .assembly-card, .assembly-media,
+   .assembly-body, .assembly-meta, .assembly-cta — these
+   classes are intentionally never targeted by this block.
+   Buttons keep their shadow (existing button style preserved).
+   ============================================================ */
+
+/* Flatten non-event card components */
+.voice-card,
+.voice-media,
+.stat,
+.timeline-media,
+.voice-card img,
+.voice-media img,
+.timeline-media img,
+.auth-visual img,
+.council-visual img,
+.positioning-media img,
+.beyond-media img,
+.global-stage-media img{
+  border-radius:0;
+}
+
+.voice-card,
+.stat{
+  box-shadow:none;
+  border:1px solid rgba(15,23,32,0.06);
+  transition:border-color .25s ease, transform .25s ease;
+}
+
+.voice-card:hover,
+.stat:hover{
+  box-shadow:none;
+  border-color:rgba(15,23,32,0.14);
+}
+
+/* Stat-primary variant (about page) — keep accent border tint, flat */
+.stat.stat-primary{
+  border-color:rgba(31,111,176,0.22);
+  box-shadow:none;
+  background:#fff;
+}
+.stat.stat-primary:hover{
+  border-color:rgba(31,111,176,0.36);
+  box-shadow:none;
+}
+
+/* Buttons — sharpen any 2px corners to 0 for institutional consistency.
+   Shadow on buttons is intentionally preserved. */
+.btn-primary,
+.btn-on-dark,
+.beyond .btn,
+.dubai-final .btn-primary,
+.final-strip-btn,
+.final-cta,
+.footer-cta-btn,
+.access .btn,
+.council .btn-on-dark{
+  border-radius:0;
+}
+
+/* ============================================================
+   EVENT CARDS — STRICT LOCK
+   The ONLY change permitted on event cards is border-radius:0.
+   Size, layout, spacing, typography, shadow, responsiveness,
+   and hover behavior must remain exactly as authored inline.
+   This explicit rule defends against any future global override.
+   ============================================================ */
+.assembly-card,
+.assembly-media,
+.assembly-body,
+.assembly-meta,
+.assembly-cta{
+  border-radius:0;
+}
+
+/* Hero video on landing pages — keep cinematic 16:9 framing
+   without forcing aspect-ratio (videos are full-bleed inside .hero) */
+.hero-video{
+  object-fit:cover;
+  object-position:50% 35%;
+}
+
+/* Trust strip logos — never crop */
+.logo-cell img{
+  object-fit:contain;
+  object-position:center;
+}
+
+/* Timeline panels — these are decorative, never crop */
+.timeline-media img{
+  object-fit:contain;
+  object-position:center;
+}
