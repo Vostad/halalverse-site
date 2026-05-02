@@ -4,14 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Request Access — Halalverse</title>
-<meta name="description" content="Request access to Halalverse assemblies, briefings, and partnership opportunities." />
+<meta name="description" content="Request access to Halalverse. Reviewed based on relevance and alignment." />
 <meta property="og:title" content="Request Access — Halalverse" />
-<meta property="og:description" content="Request access to Halalverse assemblies, briefings, and partnership opportunities." />
+<meta property="og:description" content="Access is reviewed based on relevance and alignment." />
 <meta property="og:image" content="/images/dfa/og-image.jpg" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="/images/dfa/og-image.jpg" />
-<link rel="canonical" href="https://digitalfinancealliance.com/request-access" />
+<link rel="canonical" href="https://halalverse.org/request-access.html" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -860,7 +860,7 @@
   }
   .footer-grid{
     display:grid;
-    grid-template-columns:2.4fr 1fr 1.2fr 1fr;
+    grid-template-columns:2.4fr 1fr 1fr;
     gap:88px;
     padding-bottom:80px;
   }
@@ -1434,8 +1434,10 @@
       <img src="images/dfa/logo-white.svg" alt="Halalverse" />
     </a>
     <div class="nav-links">
-      <a href="events.html">Events</a>
-      <a href="ledger.html">Ledger</a>
+      <a href="events.html">Forums</a>
+      <a href="capital.html">Capital</a>
+      <a href="expansion.html">Expansion</a>
+      <a href="training.html">Training</a>
       <a href="about.html">About</a>
       <a href="request-access.html" aria-current="page" class="nav-cta">Request Access</a>
     </div>
@@ -1458,8 +1460,10 @@
   </div>
   <ul class="mobile-menu-list">
     <li><a href="index.html">Home</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="ledger.html">Ledger</a></li>
+    <li><a href="events.html">Forums</a></li>
+    <li><a href="capital.html">Capital</a></li>
+    <li><a href="expansion.html">Expansion</a></li>
+    <li><a href="training.html">Training</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="request-access.html">Request Access</a></li>
   </ul>
@@ -1469,8 +1473,8 @@
 <section class="contact-hero">
   <div class="container">
     <span class="eyebrow">Access</span>
-    <h1>Request access.</h1>
-    <p>Halalverse assemblies are curated. Tell us who you are and what brings you here — we will respond.</p>
+    <h1>Request Access.</h1>
+    <p>Access is reviewed based on relevance and alignment.</p>
   </div>
 </section>
 
@@ -1478,14 +1482,14 @@
 <section class="inquiry" id="inquiry">
   <div class="container">
     <div class="inquiry-inner">
-      <form class="inquiry-form" method="POST" action="https://formspree.io/f/xqenkvzq" data-formspree>
+      <form class="inquiry-form" method="POST" action="https://formspree.io/f/REPLACE_BEFORE_DEPLOY" data-formspree>
         <input type="hidden" name="_subject" value="Halalverse Access Request" />
         <div>
           <label for="acc-name">Full Name</label>
           <input id="acc-name" name="name" type="text" autocomplete="name" required />
         </div>
         <div>
-          <label for="acc-company">Company / Organization</label>
+          <label for="acc-company">Company Name</label>
           <input id="acc-company" name="company" type="text" autocomplete="organization" required />
         </div>
         <div>
@@ -1496,26 +1500,33 @@
           <label for="acc-email">Email</label>
           <input id="acc-email" name="email" type="email" autocomplete="email" required />
         </div>
+        <div>
+          <label for="acc-phone">Phone</label>
+          <input id="acc-phone" name="phone" type="tel" autocomplete="tel" required />
+        </div>
+        <div>
+          <label for="acc-location">Location</label>
+          <input id="acc-location" name="location" type="text" autocomplete="address-level2" required />
+        </div>
         <div class="field-full">
-          <label for="acc-event">Which Halalverse event interests you?</label>
-          <select id="acc-event" name="event" required>
+          <label for="acc-interest-area">Area of Interest</label>
+          <select id="acc-interest-area" name="interest_area" required>
             <option value="">Select an option</option>
-            <option value="Abu Dhabi 2026">Abu Dhabi 2026</option>
-            <option value="Riyadh 2026">Riyadh 2026</option>
-            <option value="Singapore 2026">Singapore 2026</option>
-            <option value="General membership / partnership">General membership / partnership</option>
-            <option value="Multiple events">Multiple events</option>
+            <option value="Investor">Investor</option>
+            <option value="Founder">Founder</option>
+            <option value="Corporate">Corporate</option>
+            <option value="Institution">Institution</option>
           </select>
         </div>
         <div class="field-full">
-          <label for="acc-interest">Tell us about your interest</label>
-          <textarea id="acc-interest" name="interest" rows="4" required></textarea>
+          <label for="acc-looking-for">What are you looking for?</label>
+          <textarea id="acc-looking-for" name="looking_for" rows="4" required></textarea>
         </div>
         <div class="submit-row">
           <button type="submit">Submit Request</button>
         </div>
       </form>
-      <p class="form-microcopy">Submissions are reviewed within five working days.</p>
+      <p class="form-microcopy">Your request has been received. Our team will review and respond.</p>
     </div>
   </div>
 </section>
@@ -1530,28 +1541,20 @@
         <p>Connecting capital, companies, and market access across the global halal economy.</p>
       </div>
       <div class="footer-col">
-        <h5>Network</h5>
+        <h5>Sections</h5>
         <ul>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="ledger.html">Ledger</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="request-access.html">Request Access</a></li>
+          <li><a href="events.html">Forums</a></li>
+          <li><a href="capital.html">Capital</a></li>
+          <li><a href="expansion.html">Expansion</a></li>
+          <li><a href="training.html">Training</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Events</h5>
+        <h5>Legal</h5>
         <ul>
-          <li><a href="events/abu-dhabi.html">Abu Dhabi · MENA</a></li>
-          <li><a href="events/riyadh.html">Riyadh · MENA</a></li>
-          <li><a href="events/singapore.html">Singapore · Asia</a></li>
-        </ul>
-      </div>
-      <div class="footer-col footer-col-contact">
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="mailto:hello@digitalfinancealliance.com" class="footer-email">hello@digitalfinancealliance.com</a></li>
-          <li class="footer-locations">Dubai · United Arab Emirates</li>
-          <li><a href="request-access.html">Request Access</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
         </ul>
       </div>
     </div>
