@@ -347,3 +347,10 @@ img.img-no-crop{
 .mobile-menu-bar .brand img{
   height:22px;
 }
+/* Tighten the gap between icon and wordmark — original 12px read
+   too loose visually. 8px (design-system base unit) feels right. */
+.brand,
+.footer-brand-logo,
+.mobile-menu-bar .brand{
+  gap:8px;
+}
