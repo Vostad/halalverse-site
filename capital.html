@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Halalverse Capital — connecting capital with opportunities across the halal economy. Curated deal flow, investor matching, and transaction facilitation." />
+<meta name="description" content="A curated capital network connecting investors, companies, and strategic opportunities across the global halal economy." />
 <meta property="og:title" content="Capital — Halalverse" />
 <meta property="og:description" content="Connecting capital with opportunities across the halal economy." />
 <meta property="og:image" content="/images/dfa/og-image.jpg" />
@@ -1301,6 +1301,310 @@
     .pillars{grid-template-columns:1fr;}
     .structures-head{flex-direction:column;align-items:flex-start;}
   }
+
+  /* ============================================================
+     CAPITAL PAGE REDESIGN — Step 5.11.8
+     12-col grid, navy + cream only, no images, system-driven.
+     Class prefix `cap-` to avoid collision with inherited
+     .about-hero / .foundation / .timeline classes.
+     ============================================================ */
+  .cap-grid{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 48px;
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    column-gap:32px;
+  }
+  @media (max-width:1023px){
+    .cap-grid{padding:0 32px;column-gap:24px;}
+  }
+  @media (max-width:767px){
+    .cap-grid{padding:0 20px;column-gap:16px;}
+  }
+
+  /* Section 1 — Hero (navy, centered) */
+  .cap-hero{
+    background:#0E1830;
+    padding:160px 0 120px;
+    color:#fff;
+  }
+  .cap-hero-inner{
+    grid-column:1 / -1;
+    max-width:640px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .cap-hero .eyebrow{
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:rgba(255,255,255,0.65);
+    margin:0 0 32px;display:inline-block;
+  }
+  .cap-hero h1{
+    font-family:Inter,sans-serif;
+    font-size:64px;font-weight:500;
+    line-height:1.05;letter-spacing:-0.025em;
+    color:#fff;
+    margin:0 0 32px;
+  }
+  @media (max-width:768px){.cap-hero h1{font-size:40px;}}
+  .cap-hero p{
+    font-size:18px;line-height:1.55;
+    color:rgba(255,255,255,0.78);
+    max-width:560px;margin:0 auto;
+  }
+  .cap-hero .cta-row{margin-top:48px;}
+
+  /* Section 2 — Positioning (5/7 split, cream) */
+  .cap-positioning{
+    background:#FAF8F4;
+    padding:120px 0;
+  }
+  .cap-positioning-text{grid-column:1 / span 5;}
+  .cap-positioning-body{grid-column:6 / span 7;}
+  @media (max-width:1023px){
+    .cap-positioning-text,.cap-positioning-body{grid-column:1 / -1;}
+    .cap-positioning-body{margin-top:32px;}
+  }
+
+  /* Section 3 — What We Do (6/6 split, cream) */
+  .cap-what{
+    background:#FAF8F4;
+    padding:120px 0;
+    border-top:1px solid rgba(14,24,61,0.08);
+  }
+  .cap-what-text{grid-column:1 / span 6;}
+  .cap-what-body{grid-column:7 / span 6;}
+  @media (max-width:1023px){
+    .cap-what-text,.cap-what-body{grid-column:1 / -1;}
+    .cap-what-body{margin-top:32px;}
+  }
+
+  /* Shared section heading + body styles */
+  .cap-positioning h2,
+  .cap-what h2,
+  .cap-how h2,
+  .cap-deal-flow h2,
+  .cap-participants h2{
+    font-family:Inter,sans-serif;
+    font-size:40px;font-weight:500;
+    line-height:1.1;letter-spacing:-0.02em;
+    color:#0E1830;
+    margin:0;max-width:520px;
+  }
+  @media (max-width:768px){
+    .cap-positioning h2,
+    .cap-what h2,
+    .cap-how h2,
+    .cap-deal-flow h2,
+    .cap-participants h2{font-size:28px;}
+  }
+  .cap-positioning-body p,
+  .cap-what-body p{
+    font-size:18px;line-height:1.6;
+    color:rgba(14,24,48,0.75);
+    margin:0;max-width:560px;
+  }
+  .cap-positioning-body p + p{margin-top:24px;}
+
+  /* Shared eyebrow */
+  .cap-what .eyebrow,
+  .cap-step-num{
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:#0E4D3F;
+    margin:0 0 24px;display:inline-block;
+  }
+
+  /* Section 4 — How It Works (3-col, cream) */
+  .cap-how{
+    background:#FAF8F4;
+    padding:120px 0;
+    border-top:1px solid rgba(14,24,61,0.08);
+  }
+  .cap-how-head{grid-column:1 / -1;margin:0 0 64px;}
+  .cap-how-grid{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    column-gap:48px;row-gap:48px;
+  }
+  @media (max-width:767px){
+    .cap-how-grid{grid-template-columns:1fr;column-gap:0;}
+  }
+  .cap-step-num{display:block;}
+  .cap-step h3{
+    font-family:Inter,sans-serif;
+    font-size:22px;font-weight:600;
+    line-height:1.2;letter-spacing:-0.018em;
+    color:#0E1830;
+    margin:0 0 16px;
+  }
+  .cap-step p{
+    font-size:16px;line-height:1.55;
+    color:rgba(14,24,48,0.75);
+    margin:0;
+  }
+
+  /* Section 5 — Deal Flow (2×2, cream + white cards) */
+  .cap-deal-flow{
+    background:#FAF8F4;
+    padding:120px 0;
+    border-top:1px solid rgba(14,24,61,0.08);
+  }
+  .cap-deal-flow-head{grid-column:1 / -1;margin:0 0 48px;}
+  .cap-deal-flow-grid{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    column-gap:32px;row-gap:32px;
+  }
+  @media (max-width:767px){
+    .cap-deal-flow-grid{grid-template-columns:1fr;}
+  }
+  .cap-deal-card{
+    background:#fff;
+    border:1px solid rgba(14,24,61,0.08);
+    padding:32px;
+  }
+  @media (max-width:767px){.cap-deal-card{padding:24px;}}
+  .cap-deal-card h3{
+    font-family:Inter,sans-serif;
+    font-size:20px;font-weight:600;
+    line-height:1.2;letter-spacing:-0.018em;
+    color:#0E1830;
+    margin:0 0 12px;
+  }
+  .cap-deal-card p{
+    font-size:15px;line-height:1.55;
+    color:rgba(14,24,48,0.75);
+    margin:0;
+  }
+
+  /* Section 6 — Participants (5-col + hairline divider, cream) */
+  .cap-participants{
+    background:#FAF8F4;
+    padding:120px 0;
+    border-top:1px solid rgba(14,24,61,0.08);
+  }
+  .cap-participants-head{grid-column:1 / -1;margin:0 0 48px;}
+  .cap-participants-row{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    column-gap:32px;
+    padding:32px 0;
+    border-top:1px solid rgba(14,24,61,0.15);
+    border-bottom:1px solid rgba(14,24,61,0.15);
+  }
+  @media (max-width:1023px){
+    .cap-participants-row{grid-template-columns:repeat(2,1fr);row-gap:16px;}
+  }
+  @media (max-width:767px){
+    .cap-participants-row{grid-template-columns:1fr;row-gap:12px;}
+  }
+  .cap-participant{
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:13px;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:#0E1830;
+    text-align:left;
+  }
+
+  /* Section 7 — Access (7/5 split, navy) */
+  .cap-access{
+    background:#0E1830;
+    padding:120px 0;
+    color:#fff;
+  }
+  .cap-access-text{grid-column:1 / span 7;}
+  .cap-access-visual{
+    grid-column:8 / span 5;
+    display:flex;align-items:center;justify-content:center;
+  }
+  @media (max-width:1023px){
+    .cap-access-text,.cap-access-visual{grid-column:1 / -1;}
+    .cap-access-visual{margin-top:48px;}
+  }
+  .cap-access .eyebrow{
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:rgba(255,255,255,0.65);
+    margin:0 0 32px;display:inline-block;
+  }
+  .cap-access h2{
+    font-family:Inter,sans-serif;
+    font-size:40px;font-weight:500;
+    line-height:1.1;letter-spacing:-0.02em;
+    color:#fff;
+    margin:0 0 32px;max-width:520px;
+  }
+  @media (max-width:768px){.cap-access h2{font-size:28px;}}
+  .cap-access p{
+    font-size:18px;line-height:1.6;
+    color:rgba(255,255,255,0.78);
+    margin:0;max-width:520px;
+  }
+  .cap-access p + p{margin-top:16px;}
+  .cap-access .cta-row{margin-top:48px;}
+  .cap-access-grid-mark{
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    grid-template-rows:repeat(8,1fr);
+    width:240px;height:240px;
+  }
+  .cap-access-grid-mark span{
+    border:1px solid rgba(255,255,255,0.15);
+  }
+  @media (max-width:767px){
+    .cap-access-grid-mark{width:160px;height:160px;}
+  }
+
+  /* Section 8 — Differentiation Strip (centered, cream) */
+  .cap-strip{
+    background:#FAF8F4;
+    padding:120px 0;
+    border-top:1px solid rgba(14,24,61,0.08);
+  }
+  .cap-strip-inner{
+    grid-column:1 / -1;
+    max-width:840px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .cap-strip p{
+    font-family:Inter,sans-serif;
+    font-size:48px;font-weight:500;
+    line-height:1.1;letter-spacing:-0.02em;
+    color:#0E1830;
+    margin:0;
+  }
+  @media (max-width:768px){.cap-strip p{font-size:24px;}}
+
+  /* Section 9 — Final CTA (centered, cream) */
+  .cap-final{
+    background:#FAF8F4;
+    padding:120px 0 160px;
+    border-top:1px solid rgba(14,24,61,0.08);
+  }
+  .cap-final-inner{
+    grid-column:1 / -1;
+    max-width:600px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .cap-final p{
+    font-family:Inter,sans-serif;
+    font-size:24px;font-weight:500;
+    line-height:1.3;letter-spacing:-0.015em;
+    color:#0E1830;
+    margin:0 0 32px;
+  }
+  @media (max-width:768px){.cap-final p{font-size:20px;}}
 </style>
 <link rel="stylesheet" href="image-system.css">
 </head>
@@ -1348,78 +1652,149 @@
   </ul>
 </div>
 
-<!-- HERO -->
-<section class="about-hero">
-  <div class="container">
-    <span class="eyebrow">Capital</span>
-    <h1>Halalverse Capital.</h1>
-    <p>Connecting capital with opportunities across the halal economy.</p>
-  </div>
-</section>
+<!-- CAPITAL PAGE — Step 5.11.8 redesign (BlackRock-tier institutional layout) -->
 
-<!-- WHAT WE DO -->
-<section class="foundation">
-  <div class="container">
-    <div class="grid">
-      <div>
-        <span class="eyebrow">What We Do</span>
-        <h2>Capital, deployed.</h2>
-      </div>
-      <div class="foundation-text">
-        <p>Halalverse facilitates investments, partnerships, and strategic transactions between companies and investors.</p>
+<!-- SECTION 1 — HERO (navy) -->
+<section class="cap-hero">
+  <div class="cap-grid">
+    <div class="cap-hero-inner">
+      <span class="eyebrow">CAPITAL</span>
+      <h1>Halalverse Capital.</h1>
+      <p>A curated capital network connecting investors, companies, and strategic opportunities across the global halal economy.</p>
+      <div class="cta-row">
+        <a href="request-access.html" class="btn btn-primary">Request Access</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="timeline">
-  <div class="container">
-    <div class="timeline-head">
-      <span class="eyebrow">How It Works</span>
+<!-- SECTION 2 — POSITIONING (5/7 split, cream) -->
+<section class="cap-positioning">
+  <div class="cap-grid">
+    <div class="cap-positioning-text">
+      <h2>A controlled capital environment.</h2>
+    </div>
+    <div class="cap-positioning-body">
+      <p>Not an open marketplace. Not a listing platform.</p>
+      <p>Halalverse Capital connects the right participants with the right opportunities — through curated introductions, not volume.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 — WHAT WE DO (6/6 split, cream) -->
+<section class="cap-what">
+  <div class="cap-grid">
+    <div class="cap-what-text">
+      <span class="eyebrow">WHAT WE DO</span>
+      <h2>Capital, deployed.</h2>
+    </div>
+    <div class="cap-what-body">
+      <p>We facilitate investments, partnerships, and strategic transactions between companies and investors — with a focus on quality, alignment, and execution.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — HOW IT WORKS (3-col, cream) -->
+<section class="cap-how">
+  <div class="cap-grid">
+    <div class="cap-how-head">
       <h2>From opportunity to execution.</h2>
     </div>
-
-    <div class="timeline-row">
-      <div class="timeline-text">
-        <span class="timeline-year">Step 1</span>
+    <div class="cap-how-grid">
+      <div class="cap-step">
+        <span class="cap-step-num">01</span>
         <h3>Opportunity Identification</h3>
-        <p>Selected investment and partnership opportunities are sourced.</p>
+        <p>Curated opportunities sourced through trusted networks.</p>
       </div>
-      <div class="timeline-media">
-        <img src="authority.jpg" alt="" />
-      </div>
-    </div>
-
-    <div class="timeline-row reverse">
-      <div class="timeline-text">
-        <span class="timeline-year">Step 2</span>
+      <div class="cap-step">
+        <span class="cap-step-num">02</span>
         <h3>Matching</h3>
-        <p>Opportunities are aligned with relevant investors and partners.</p>
+        <p>Aligned with relevant investors and partners.</p>
       </div>
-      <div class="timeline-media">
-        <img src="council/discussion.jpg" alt="" />
-      </div>
-    </div>
-
-    <div class="timeline-row">
-      <div class="timeline-text">
-        <span class="timeline-year">Step 3</span>
+      <div class="cap-step">
+        <span class="cap-step-num">03</span>
         <h3>Facilitation</h3>
-        <p>Introductions, structuring, and execution support.</p>
-      </div>
-      <div class="timeline-media">
-        <img src="council/value.jpg" alt="" />
+        <p>Introductions and support through execution.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="final-statement">
-  <div class="container" style="text-align:center;">
-    <p>Participate in curated deal flow and strategic opportunities.</p>
-    <div style="margin-top:32px;">
+<!-- SECTION 5 — DEAL FLOW (2×2, cream + white cards) -->
+<section class="cap-deal-flow">
+  <div class="cap-grid">
+    <div class="cap-deal-flow-head">
+      <h2>Focused deal flow.</h2>
+    </div>
+    <div class="cap-deal-flow-grid">
+      <div class="cap-deal-card">
+        <h3>Growth-stage companies</h3>
+        <p>Companies seeking capital for scale and expansion.</p>
+      </div>
+      <div class="cap-deal-card">
+        <h3>Cross-border expansion</h3>
+        <p>Market entry and regional growth opportunities.</p>
+      </div>
+      <div class="cap-deal-card">
+        <h3>Strategic partnerships</h3>
+        <p>Operator and institutional collaborations.</p>
+      </div>
+      <div class="cap-deal-card">
+        <h3>Sector investments</h3>
+        <p>Finance, trade, and technology-led opportunities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 — PARTICIPANTS (5-col + hairline divider, cream) -->
+<section class="cap-participants">
+  <div class="cap-grid">
+    <div class="cap-participants-head">
+      <h2>Who participates.</h2>
+    </div>
+    <div class="cap-participants-row">
+      <div class="cap-participant">Investors</div>
+      <div class="cap-participant">Family Offices</div>
+      <div class="cap-participant">Founders</div>
+      <div class="cap-participant">Operators</div>
+      <div class="cap-participant">Institutions</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7 — ACCESS (7/5 split, navy) -->
+<section class="cap-access">
+  <div class="cap-grid">
+    <div class="cap-access-text">
+      <span class="eyebrow">ACCESS</span>
+      <h2>Selective access.</h2>
+      <p>Participation is limited to ensure high-quality interactions.</p>
+      <p>There is no open access — entry is based on relevance, intent, and alignment.</p>
+      <div class="cta-row">
+        <a href="request-access.html" class="btn btn-primary">Request Access</a>
+      </div>
+    </div>
+    <div class="cap-access-visual">
+      <div class="cap-access-grid-mark" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8 — DIFFERENTIATION STRIP (centered, cream) -->
+<section class="cap-strip">
+  <div class="cap-grid">
+    <div class="cap-strip-inner">
+      <p>Built for signal, not volume.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9 — FINAL CTA (centered, cream) -->
+<section class="cap-final">
+  <div class="cap-grid">
+    <div class="cap-final-inner">
+      <p>Participate in curated opportunities.</p>
       <a href="request-access.html" class="btn btn-primary">Request Access</a>
     </div>
   </div>
