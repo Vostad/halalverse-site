@@ -14,7 +14,7 @@
 <title>About — Halalverse</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -1302,6 +1302,227 @@
     .pillars{grid-template-columns:1fr;}
     .structures-head{flex-direction:column;align-items:flex-start;}
   }
+
+  /* ============================================================
+     ABOUT — STRUCTURED EVOLUTION TIMELINE (Step 5.11.2)
+     Cream page bg, white cards, racing-green eyebrows, navy text.
+     Class prefix `et-` (evolution-timeline) avoids collision with
+     inherited .timeline / .timeline-row / .timeline-year classes.
+     ============================================================ */
+  .et-page{
+    background:#FAF8F4;
+    padding:96px 0;
+  }
+  .et-page .container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 48px;
+  }
+  @media (max-width:768px){
+    .et-page .container{padding:0 24px;}
+  }
+  .et-header{max-width:700px;margin-bottom:96px;}
+  @media (max-width:768px){.et-header{margin-bottom:64px;}}
+  .et-eyebrow{
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:#0E4D3F;
+    margin:0 0 24px;display:inline-block;
+  }
+  .et-title{
+    font-family:Inter,sans-serif;
+    font-size:48px;font-weight:500;
+    color:#0E1830;
+    line-height:1.1;letter-spacing:-0.02em;
+    margin:0 0 24px;max-width:700px;
+  }
+  @media (max-width:768px){.et-title{font-size:32px;}}
+  .et-subtitle{
+    font-size:18px;line-height:1.55;font-weight:400;
+    color:rgba(14,24,48,0.75);
+    max-width:700px;margin:0;
+  }
+  .et-track{display:flex;flex-direction:column;}
+  .et-row{
+    display:grid;
+    grid-template-columns:180px 24px 1fr;
+    align-items:start;
+    padding:24px 0;
+  }
+  @media (min-width:768px) and (max-width:1023px){
+    .et-row{grid-template-columns:120px 24px 1fr;}
+  }
+  .et-meta{
+    text-align:right;
+    padding-right:24px;padding-top:28px;
+  }
+  .et-year{
+    display:block;
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:14px;font-weight:500;color:#0E1830;
+  }
+  .et-edition{
+    display:block;
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:11px;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:rgba(14,24,48,0.55);
+    margin-top:6px;
+  }
+  .et-rail{position:relative;width:24px;align-self:stretch;}
+  .et-rail::before{
+    content:"";position:absolute;
+    top:0;bottom:0;left:50%;
+    width:1px;background:rgba(14,24,61,0.15);
+    transform:translateX(-50%);
+  }
+  .et-node{
+    position:absolute;top:32px;left:50%;
+    transform:translateX(-50%);
+    width:12px;height:12px;
+    border:1px solid #0E1830;
+    background:#FAF8F4;
+    border-radius:50%;
+    z-index:1;display:block;
+  }
+  .et-card{
+    max-width:720px;
+    background:#FFFFFF;
+    border:1px solid rgba(14,24,61,0.08);
+    padding:32px;
+  }
+  .et-card > img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    display:block;
+    margin:0 0 24px 0;
+    background:#F4F6F8;
+  }
+  .et-card h3{
+    font-family:Inter,sans-serif;
+    font-size:24px;font-weight:600;
+    color:#0E1830;
+    letter-spacing:-0.018em;line-height:1.2;
+    margin:0 0 8px 0;
+  }
+  .et-card-subtitle{
+    font-size:16px;font-weight:500;
+    color:rgba(14,24,48,0.75);
+    margin:0 0 16px 0;
+    line-height:1.4;
+  }
+  .et-card-body{font-size:15px;line-height:1.6;color:rgba(14,24,48,0.80);}
+  .et-card-body p{
+    margin:0;
+    font-size:15px;line-height:1.6;
+    color:rgba(14,24,48,0.80);
+  }
+  .et-card-body p + p{margin-top:12px;}
+
+  /* Image-right layout — desktop ≥1024px : 60/40 */
+  @media (min-width:1024px){
+    .et-row.et-image-right .et-card{
+      display:grid;
+      grid-template-columns:60% 40%;
+      column-gap:32px;
+      align-items:stretch;
+    }
+    .et-row.et-image-right .et-card > img{
+      grid-column:2;
+      grid-row:1 / span 99;
+      margin:0;
+      height:100%;
+      align-self:stretch;
+      aspect-ratio:auto;
+    }
+    .et-row.et-image-right .et-card > h3,
+    .et-row.et-image-right .et-card > .et-card-subtitle,
+    .et-row.et-image-right .et-card > .et-card-body{grid-column:1;}
+  }
+
+  /* Image-right layout — tablet 768–1023 : 50/50 */
+  @media (min-width:768px) and (max-width:1023px){
+    .et-row.et-image-right .et-card{
+      display:grid;
+      grid-template-columns:50% 50%;
+      column-gap:24px;
+      align-items:stretch;
+    }
+    .et-row.et-image-right .et-card > img{
+      grid-column:2;
+      grid-row:1 / span 99;
+      margin:0;
+      height:100%;
+      align-self:stretch;
+      aspect-ratio:auto;
+    }
+    .et-row.et-image-right .et-card > h3,
+    .et-row.et-image-right .et-card > .et-card-subtitle,
+    .et-row.et-image-right .et-card > .et-card-body{grid-column:1;}
+  }
+
+  /* Mobile <768px : single col, rail at 16px from left, image-top always */
+  @media (max-width:767px){
+    .et-row{
+      grid-template-columns:1fr;
+      padding:0 0 40px 40px;
+      position:relative;
+    }
+    .et-meta{text-align:left;padding:0 0 16px 0;}
+    .et-year,.et-edition{display:inline;}
+    .et-edition::before{content:" · ";}
+    .et-rail{
+      position:absolute;
+      left:16px;top:0;bottom:0;
+      height:100%;
+    }
+    .et-rail::before{left:0;}
+    .et-node{top:28px;left:0;transform:translateX(-50%);}
+    .et-card{padding:24px;}
+    .et-row.et-image-right .et-card{display:block;}
+    .et-row.et-image-right .et-card > img{
+      grid-column:auto;grid-row:auto;
+      height:auto;aspect-ratio:4/3;
+      margin:0 0 24px 0;
+    }
+  }
+
+  /* Forward Path divider */
+  .et-divider{
+    padding:48px 0;
+    position:relative;
+    text-align:center;
+  }
+  .et-divider::before{
+    content:"";position:absolute;
+    top:50%;left:0;right:0;
+    height:1px;background:rgba(14,24,61,0.15);
+    z-index:0;
+  }
+  .et-divider-eyebrow{
+    position:relative;z-index:1;
+    display:inline-block;
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:#0E4D3F;
+    background:#FAF8F4;
+    padding:0 24px;
+  }
+
+  /* Closing block */
+  .et-closing{
+    max-width:700px;
+    margin:48px auto 96px;
+    text-align:center;
+  }
+  .et-closing p{
+    font-size:18px;line-height:1.55;
+    color:rgba(14,24,48,0.75);
+    margin:0;
+  }
 </style>
 <link rel="stylesheet" href="image-system.css">
 </head>
@@ -1349,91 +1570,262 @@
   </ul>
 </div>
 
-<!-- HERO (Section 1) -->
-<section class="about-hero">
+<!-- ABOUT HALALVERSE — Structured Evolution Timeline (Step 5.11.2) -->
+<section class="et-page">
   <div class="container">
-    <span class="eyebrow">About</span>
-    <h1>About Halalverse.</h1>
-  </div>
-</section>
 
-<!-- OVERVIEW (Section 2) -->
-<section class="foundation">
-  <div class="container">
-    <div class="grid">
-      <div>
-        <span class="eyebrow">Overview</span>
-        <h2>The platform.</h2>
-      </div>
-      <div class="foundation-text">
-        <p>Halalverse is a platform connecting capital, companies, and market access across the global halal economy.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <header class="et-header">
+      <p class="et-eyebrow">ABOUT HALALVERSE</p>
+      <h1 class="et-title">A Structured Evolution of the Halal Economy</h1>
+      <p class="et-subtitle">Halalverse has developed through a sequence of focused forums across Islamic finance, technology, and global markets. Each edition addressed a specific shift in the ecosystem — from early blockchain adoption to fintech, tokenization, and cross-sector impact. This progression now forms the foundation for a broader platform connecting capital, companies, and market access across the halal economy.</p>
+    </header>
 
-<!-- FOCUS (Section 3) -->
-<section class="timeline">
-  <div class="container">
-    <div class="timeline-head">
-      <span class="eyebrow">Focus</span>
-      <h2>Four areas of work.</h2>
+    <div class="et-track">
+
+      <!-- EDITION 01 — image-top -->
+      <article class="et-row et-image-top">
+        <div class="et-meta"><span class="et-year">2018</span><span class="et-edition">EDITION 01</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Macro abstract: dark navy field with thin geometric mesh of nodes-and-edges. Subtle, low-contrast, almost wireframe. -->
+          <img src="images/timeline/edition-01.jpg" alt="" />
+          <h3>BIB Summit</h3>
+          <p class="et-card-subtitle">Blockchain for Islamic Banking and Finance</p>
+          <div class="et-card-body">
+            <p>The first forum dedicated to blockchain applications in Islamic finance. Convened institutions including Dubai Blockchain Center, SettleMint, Temenos, NEM Foundation, and Clear Foundation, alongside leading banks and regulators such as Abu Dhabi Islamic Bank, Dubai Islamic Bank, Al Rajhi, SAMA, and DFSA. Established the initial foundation for technology-driven dialogue in the halal financial ecosystem.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- EDITION 02 — image-right -->
+      <article class="et-row et-image-right">
+        <div class="et-meta"><span class="et-year">2019</span><span class="et-edition">EDITION 02</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Architectural detail: cropped pattern from Islamic geometric tilework, monochrome navy on cream. -->
+          <img src="images/timeline/edition-02.jpg" alt="" />
+          <h3>World Islamic Fintech Forum (WIF)</h3>
+          <div class="et-card-body">
+            <p>Focused on the emergence of Islamic fintech across the region. Delivered with partners including Albaraka Banking Group, Blossom Finance, Ethis, Finterra, and Al Fardan Exchange, with participation from Commercial Bank of Dubai, American University of Sharjah, and Dubai Islamic Bank. Positioned the platform as a convener for innovation in Islamic financial services.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- EDITION 03 — image-top -->
+      <article class="et-row et-image-top">
+        <div class="et-meta"><span class="et-year">2021</span><span class="et-edition">EDITION 03</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Abstract: layered translucent panels suggesting decentralized layers. Cool tones. No screens, no UI mockups. -->
+          <img src="images/timeline/edition-03.jpg" alt="" />
+          <h3>World DeFi and NFT Summit (WNDS)</h3>
+          <div class="et-card-body">
+            <p>Introduced decentralized finance and digital assets to the regional ecosystem. Included a dedicated track on Halal DeFi, alongside participation from Zilliqa, Chainlink, Polygon, and emerging Web3 ventures. Marked the expansion into decentralized digital markets and new asset classes.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- EDITION 04 — image-right -->
+      <article class="et-row et-image-right">
+        <div class="et-meta"><span class="et-year">2022</span><span class="et-edition">EDITION 04</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Abstract network of concentric rings or radial mesh. Reads as "platform" / "convergence point." -->
+          <img src="images/timeline/edition-04.jpg" alt="" />
+          <h3>Halalverse</h3>
+          <p class="et-card-subtitle">Web3 and Blockchain for Halal and Impact</p>
+          <div class="et-card-body">
+            <p>Introduced the Halalverse platform as a unified concept. Focused on Web3, blockchain, and technology for impact, with participation from Carbon Market Exchange, CoinMENA, and ecosystem partners. Recognized as a first-of-its-kind forum combining halal principles with emerging technologies.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- EDITION 05 — image-top -->
+      <article class="et-row et-image-top">
+        <div class="et-meta"><span class="et-year">2023</span><span class="et-edition">EDITION 05</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Architectural: aerial view of solar panel grid or wind farm at dawn, desaturated. Industrial-scale. -->
+          <img src="images/timeline/edition-05.jpg" alt="" />
+          <h3>Sustex</h3>
+          <p class="et-card-subtitle">Tech for Sustainability and Impact</p>
+          <div class="et-card-body">
+            <p>Expanded the scope into sustainability and impact-driven technology. Included a dedicated track on halal applications within broader ESG and technology discussions. Reinforced the intersection between halal markets, sustainability, and global impact.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- EDITION 06 — image-right -->
+      <article class="et-row et-image-right">
+        <div class="et-meta"><span class="et-year">2023</span><span class="et-edition">EDITION 06</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Vault or safety deposit detail, macro shot of metallic geometric pattern. -->
+          <img src="images/timeline/edition-06.jpg" alt="" />
+          <h3>World Token Summit</h3>
+          <p class="et-card-subtitle">RWA Tokenization</p>
+          <div class="et-card-body">
+            <p>Focused on real-world asset tokenization with a halal perspective. Delivered with partners including Cardano Foundation, Zoksh, and Dubai Blockchain Center, with participation from financial institutions and infrastructure providers. Positioned Halalverse within the emerging digital capital markets landscape.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- EDITION 07 — image-top -->
+      <article class="et-row et-image-top">
+        <div class="et-meta"><span class="et-year">2024</span><span class="et-edition">EDITION 07</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Skyscraper detail: cropped facade of an institutional building, shot from below. -->
+          <img src="images/timeline/edition-07.jpg" alt="" />
+          <h3>World Token Summit 2.0</h3>
+          <p class="et-card-subtitle">RWA Tokenization</p>
+          <div class="et-card-body">
+            <p>Expanded discussions toward institutional adoption of tokenized assets. Included partners such as Tokeny, HSBC, Zodia Markets, Digishares, Brickken, TVVIN, and Dubai Blockchain Center. Featured focused dialogue on Sukuk tokenization and digital asset frameworks.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- EDITION 08 — image-right -->
+      <article class="et-row et-image-right">
+        <div class="et-meta"><span class="et-year">2024</span><span class="et-edition">EDITION 08</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Data center server rack abstract — tight crop, navy cast. -->
+          <img src="images/timeline/edition-08.jpg" alt="" />
+          <h3>Islamic Fintech Forum 2.0</h3>
+          <div class="et-card-body">
+            <p>Reintroduced the Islamic fintech agenda with emphasis on AI and emerging technologies. Supported by Mashreq Al Islami, Qatar Financial Centre, and RWA.inc, with participation from Wahed Invest, Ethis Ventures, and Hasan VC. Brought together senior stakeholders across financial institutions and fintech platforms.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2024–25 ROW — image-top, no edition label -->
+      <article class="et-row et-image-top">
+        <div class="et-meta"><span class="et-year">2024–2025</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Architectural transition imagery — bridge or threshold detail, monochrome. -->
+          <img src="images/timeline/transition.jpg" alt="" />
+          <h3>Halalverse Ecosystem Development</h3>
+          <div class="et-card-body">
+            <p>Transition phase from forums to a structured platform. Focus areas include forums, capital facilitation, market expansion, and executive training. Designed to extend beyond convening into enabling transactions, partnerships, and cross-border growth.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- FORWARD PATH divider -->
+      <div class="et-divider">
+        <span class="et-divider-eyebrow">FORWARD PATH</span>
+      </div>
+
+      <!-- EDITION 09 — image-top -->
+      <article class="et-row et-image-top">
+        <div class="et-meta"><span class="et-year">2026</span><span class="et-edition">EDITION 09</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Abstract financial chart pattern with hairline grid, nearly monochrome. -->
+          <img src="images/timeline/edition-09.jpg" alt="" />
+          <h3>World Token Summit 3.0</h3>
+          <p class="et-card-subtitle">RWA Tokenization</p>
+          <div class="et-card-body">
+            <p>Continues the focus on tokenized assets and institutional adoption. Expands engagement across financial institutions, infrastructure providers, and digital asset platforms. Builds on prior editions to deepen practical applications within halal capital markets.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- EDITION 10 — image-right -->
+      <article class="et-row et-image-right">
+        <div class="et-meta"><span class="et-year">2026</span><span class="et-edition">EDITION 10</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Doha skyline detail at dawn, desaturated, low-contrast. Architectural, not touristic. -->
+          <img src="images/timeline/edition-10.jpg" alt="" />
+          <h3>Islamic Fintech Forum</h3>
+          <p class="et-card-subtitle">Doha</p>
+          <div class="et-card-body">
+            <p>Focused on digital finance, infrastructure, and financial innovation. Brings together regulators, financial institutions, and technology providers. Strengthens collaboration across Islamic fintech ecosystems.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- EDITION 11 — image-top -->
+      <article class="et-row et-image-top">
+        <div class="et-meta"><span class="et-year">2027</span><span class="et-edition">EDITION 11</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Cargo terminal or port aerial, geometric containers in monochrome. -->
+          <img src="images/timeline/edition-11.jpg" alt="" />
+          <h3>World Halal Economy Summit</h3>
+          <p class="et-card-subtitle">Doha</p>
+          <div class="et-card-body">
+            <p>A cross-sector platform covering finance, trade, and industry. Connects institutions, corporates, and policymakers. Advances coordination across the global halal economy.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- EDITION 12 — image-right -->
+      <article class="et-row et-image-right">
+        <div class="et-meta"><span class="et-year">2027</span><span class="et-edition">EDITION 12</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Riyadh financial district architecture detail, tight crop on a glass tower facade. -->
+          <img src="images/timeline/edition-12.jpg" alt="" />
+          <h3>Halal Investment &amp; Capital Forum</h3>
+          <p class="et-card-subtitle">Riyadh</p>
+          <div class="et-card-body">
+            <p>Focused on capital allocation and investment strategies. Engages investors, funds, and financial institutions. Supports deal flow and structured investment opportunities.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- EDITION 13 — image-top -->
+      <article class="et-row et-image-top">
+        <div class="et-meta"><span class="et-year">To be announced</span><span class="et-edition">EDITION 13</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Logistics infrastructure abstract — overhead shot of a port crane or rail yard, monochrome. -->
+          <img src="images/timeline/edition-13.jpg" alt="" />
+          <h3>Halal Supply Chain &amp; Trade Forum</h3>
+          <div class="et-card-body">
+            <p>Focused on logistics, certification, and trade infrastructure. Brings together supply chain operators and regulators. Strengthens cross-border halal trade systems.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- EDITION 14 — image-right -->
+      <article class="et-row et-image-right">
+        <div class="et-meta"><span class="et-year">To be announced</span><span class="et-edition">EDITION 14</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Abstract data visualization — sparse hairline graph or topological mesh. -->
+          <img src="images/timeline/edition-14.jpg" alt="" />
+          <h3>AI &amp; Digital Transformation Forum</h3>
+          <div class="et-card-body">
+            <p>Focused on AI and enterprise technology adoption. Explores applications across finance, compliance, and operations. Supports digital transformation across halal sectors.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- EDITION 15 — image-top -->
+      <article class="et-row et-image-top">
+        <div class="et-meta"><span class="et-year">To be announced</span><span class="et-edition">EDITION 15</span></div>
+        <div class="et-rail"><span class="et-node"></span></div>
+        <div class="et-card">
+          <!-- IMAGE DIRECTION: Architectural detail: cropped column or arch from Islamic financial district architecture, monochrome. -->
+          <img src="images/timeline/edition-15.jpg" alt="" />
+          <h3>Global Sukuk Forum</h3>
+          <div class="et-card-body">
+            <p>Focused on sukuk markets and structured finance. Engages issuers, investors, and financial institutions. Supports development of Islamic capital markets globally.</p>
+          </div>
+        </div>
+      </article>
+
     </div>
 
-    <div class="timeline-row">
-      <div class="timeline-text">
-        <span class="timeline-year">01</span>
-        <h3><a href="events.html" style="color:inherit;border-bottom:1px solid rgba(15,23,32,0.18);">Forums</a></h3>
-        <p>Curated forums that bring together investors, companies, and decision-makers.</p>
-      </div>
-      <div class="timeline-media">
-        <img src="authority.jpg" alt="" />
-      </div>
+    <div class="et-closing">
+      <p>Halalverse reflects a consistent progression from focused forums to a broader ecosystem. The next phase is centered on connecting capital, institutions, and market access across the global halal economy.</p>
     </div>
 
-    <div class="timeline-row reverse">
-      <div class="timeline-text">
-        <span class="timeline-year">02</span>
-        <h3><a href="capital.html" style="color:inherit;border-bottom:1px solid rgba(15,23,32,0.18);">Capital</a></h3>
-        <p>Facilitation of investments, partnerships, and strategic transactions.</p>
-      </div>
-      <div class="timeline-media">
-        <img src="council/discussion.jpg" alt="" />
-      </div>
-    </div>
-
-    <div class="timeline-row">
-      <div class="timeline-text">
-        <span class="timeline-year">03</span>
-        <h3><a href="expansion.html" style="color:inherit;border-bottom:1px solid rgba(15,23,32,0.18);">Expansion</a></h3>
-        <p>Direct support for entering and scaling across key halal markets.</p>
-      </div>
-      <div class="timeline-media">
-        <img src="council/value.jpg" alt="" />
-      </div>
-    </div>
-
-    <div class="timeline-row reverse">
-      <div class="timeline-text">
-        <span class="timeline-year">04</span>
-        <h3><a href="training.html" style="color:inherit;border-bottom:1px solid rgba(15,23,32,0.18);">Training</a></h3>
-        <p>Focused programs for institutions and companies navigating the evolving halal economy.</p>
-      </div>
-      <div class="timeline-media">
-        <img src="images/discussion-01.jpg" alt="" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- POSITIONING (Section 4) -->
-<section class="become">
-  <div class="container">
-    <div class="become-inner">
-      <span class="eyebrow">Positioning</span>
-      <h2>A curated environment.</h2>
-      <p>Halalverse operates as a curated environment designed to facilitate business outcomes across the halal economy.</p>
-    </div>
   </div>
 </section>
 
