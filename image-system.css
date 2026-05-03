@@ -317,3 +317,33 @@ img.img-no-crop{
   object-position:50% 30%;
   display:block;
 }
+
+/* ============================================================
+   HALALVERSE WORDMARK LOCKUP — Step 5.11.7b
+   Icon + "HALALVERSE" wordmark side by side in header (.brand),
+   mobile menu bar (.mobile-menu-bar .brand), and footer
+   (.footer-brand-logo). Icon sized at 22px to be ~20% taller
+   than the 18px wordmark text height. Existing flex gap (12px)
+   on .brand handles the spacing between icon and wordmark.
+   Loaded after inline <style>, so this overrides per-page
+   icon sizing (40px header / 32px mobile / 36px footer).
+   ============================================================ */
+.brand-wordmark{
+  font-family:Inter,sans-serif;
+  font-size:18px;
+  font-weight:600;
+  letter-spacing:0.02em;
+  text-transform:uppercase;
+  line-height:1;
+  color:#FFFFFF; /* default — header + mobile menu (dark backgrounds) */
+}
+.footer-brand-logo .brand-wordmark{
+  color:#0E1830; /* navy on footer light background */
+}
+/* Resize logo icons so the lockup is balanced — 22px is 1.2× the
+   18px wordmark text height per design spec */
+.brand img,
+.footer-brand-logo img,
+.mobile-menu-bar .brand img{
+  height:22px;
+}
