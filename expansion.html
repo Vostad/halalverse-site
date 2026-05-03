@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Halalverse Market Expansion Program — supporting companies entering and scaling in key halal markets across GCC, Malaysia, and Indonesia." />
+<meta name="description" content="Structured support for companies entering and scaling in key halal markets. Halalverse Market Expansion." />
 <meta property="og:title" content="Expansion — Halalverse" />
 <meta property="og:description" content="Supporting companies entering key halal markets." />
 <meta property="og:image" content="/images/dfa/og-image.jpg" />
@@ -1301,6 +1301,284 @@
     .pillars{grid-template-columns:1fr;}
     .structures-head{flex-direction:column;align-items:flex-start;}
   }
+
+  /* ============================================================
+     EXPANSION PAGE REDESIGN — Step 5.11.9
+     Text-only institutional layout. 12-col grid, navy bookend
+     bookends, cream interior. ZERO images. Class prefix `exp-`
+     to avoid collision with capital.html `cap-` and inherited
+     about/foundation/timeline classes.
+     ============================================================ */
+  .exp-grid{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 48px;
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    column-gap:32px;
+  }
+  @media (max-width:1023px){
+    .exp-grid{padding:0 32px;column-gap:24px;}
+  }
+  @media (max-width:767px){
+    .exp-grid{padding:0 20px;column-gap:16px;}
+  }
+
+  /* Shared eyebrow (cream sections — racing green) */
+  .exp-cream .exp-eyebrow{
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:#0E4D3F;
+    margin:0 0 24px;display:inline-block;
+  }
+  /* Navy sections — eyebrow uses white-65% per Step 5.10.2 contrast */
+  .exp-navy .exp-eyebrow{
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:rgba(255,255,255,0.65);
+    margin:0 0 32px;display:inline-block;
+  }
+
+  /* Section 1 — Hero (NAVY, centered) */
+  .exp-hero{
+    background:#0E1830;
+    padding:160px 0 128px;
+    color:#fff;
+  }
+  .exp-hero.exp-navy{background:#0E1830;}
+  .exp-hero-inner{
+    grid-column:1 / -1;
+    max-width:640px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .exp-hero h1{
+    font-family:Inter,sans-serif;
+    font-size:64px;font-weight:500;
+    line-height:1.05;letter-spacing:-0.02em;
+    color:#fff;
+    margin:0 0 32px;
+  }
+  @media (max-width:768px){.exp-hero h1{font-size:40px;}}
+  .exp-hero p{
+    font-size:18px;line-height:1.55;
+    color:rgba(255,255,255,0.78);
+    max-width:560px;margin:0 auto;
+  }
+  .exp-hero .cta-row{margin-top:48px;}
+
+  /* Section 2 — Positioning (5/7 split, cream) */
+  .exp-positioning{
+    background:#FAF8F4;
+    padding:128px 0;
+  }
+  .exp-positioning-text{grid-column:1 / span 5;}
+  .exp-positioning-body{grid-column:6 / span 7;}
+  @media (max-width:1023px){
+    .exp-positioning-text,.exp-positioning-body{grid-column:1 / -1;}
+    .exp-positioning-body{margin-top:32px;}
+  }
+  .exp-positioning h2{
+    font-family:Inter,sans-serif;
+    font-size:56px;font-weight:500;
+    line-height:1.1;letter-spacing:-0.02em;
+    color:#0E1830;
+    margin:0;max-width:520px;
+  }
+  @media (max-width:768px){.exp-positioning h2{font-size:32px;}}
+  .exp-positioning-body p{
+    font-size:18px;line-height:1.6;
+    color:rgba(14,24,48,0.80);
+    margin:0;max-width:560px;
+  }
+  .exp-positioning-body p + p{margin-top:24px;}
+
+  /* Section 3 — Markets (3-col, cream) */
+  .exp-markets{
+    background:#FAF8F4;
+    padding:96px 0;
+  }
+  .exp-markets-head{grid-column:1 / -1;margin:0 0 48px;}
+  .exp-markets-grid{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    column-gap:48px;row-gap:48px;
+    padding-top:48px;
+    border-top:1px solid rgba(14,24,61,0.10);
+  }
+  @media (max-width:1023px){
+    .exp-markets-grid{grid-template-columns:1fr;column-gap:0;}
+  }
+  .exp-market h3{
+    font-family:Inter,sans-serif;
+    font-size:22px;font-weight:600;
+    line-height:1.2;letter-spacing:-0.018em;
+    color:#0E1830;
+    margin:0 0 16px;
+  }
+  .exp-market p{
+    font-size:16px;line-height:1.6;
+    color:rgba(14,24,48,0.75);
+    margin:0;
+  }
+
+  /* Section 4 — Capabilities (3-col, cream) */
+  .exp-capabilities{
+    background:#FAF8F4;
+    padding:112px 0;
+    border-top:1px solid rgba(14,24,61,0.08);
+  }
+  .exp-capabilities-head{grid-column:1 / -1;margin:0 0 48px;}
+  .exp-capabilities-grid{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    column-gap:48px;row-gap:48px;
+  }
+  @media (max-width:1023px){
+    .exp-capabilities-grid{grid-template-columns:1fr;column-gap:0;}
+  }
+  .exp-capability h3{
+    font-family:Inter,sans-serif;
+    font-size:22px;font-weight:600;
+    line-height:1.2;letter-spacing:-0.018em;
+    color:#0E1830;
+    margin:0 0 16px;
+  }
+  .exp-capability p{
+    font-size:16px;line-height:1.6;
+    color:rgba(14,24,48,0.75);
+    margin:0;
+  }
+
+  /* Section 5 — Process (3-step horizontal, cream) */
+  .exp-process{
+    background:#FAF8F4;
+    padding:96px 0;
+    border-top:1px solid rgba(14,24,61,0.08);
+  }
+  .exp-process-head{grid-column:1 / -1;margin:0 0 48px;}
+  .exp-process-row{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    column-gap:48px;row-gap:48px;
+    padding-top:48px;
+    border-top:1px solid rgba(14,24,61,0.10);
+  }
+  @media (max-width:1023px){
+    .exp-process-row{grid-template-columns:1fr;column-gap:0;border-top:1px solid rgba(14,24,61,0.10);}
+  }
+  .exp-step .exp-step-num{
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:#0E4D3F;
+    margin:0 0 16px;display:block;
+  }
+  .exp-step h3{
+    font-family:Inter,sans-serif;
+    font-size:22px;font-weight:600;
+    line-height:1.2;letter-spacing:-0.018em;
+    color:#0E1830;
+    margin:0 0 16px;
+  }
+  .exp-step p{
+    font-size:16px;line-height:1.6;
+    color:rgba(14,24,48,0.75);
+    margin:0;
+  }
+
+  /* Shared section h2 (Markets, Capabilities, Process) */
+  .exp-markets h2,
+  .exp-capabilities h2,
+  .exp-process h2{
+    font-family:Inter,sans-serif;
+    font-size:48px;font-weight:500;
+    line-height:1.1;letter-spacing:-0.02em;
+    color:#0E1830;
+    margin:0;max-width:520px;
+  }
+  @media (max-width:768px){
+    .exp-markets h2,
+    .exp-capabilities h2,
+    .exp-process h2{font-size:28px;}
+  }
+
+  /* Section 6 — Differentiation (NAVY, centered narrow) */
+  .exp-differentiation{
+    background:#0E1830;
+    padding:128px 0;
+    color:#fff;
+  }
+  .exp-differentiation-inner{
+    grid-column:1 / -1;
+    max-width:700px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .exp-differentiation h2{
+    font-family:Inter,sans-serif;
+    font-size:40px;font-weight:500;
+    line-height:1.15;letter-spacing:-0.02em;
+    color:#fff;
+    margin:0 0 32px;
+  }
+  @media (max-width:768px){.exp-differentiation h2{font-size:24px;}}
+  .exp-differentiation p{
+    font-size:18px;line-height:1.6;
+    color:rgba(255,255,255,0.78);
+    margin:0;max-width:560px;margin:0 auto;
+  }
+
+  /* Section 7 — Access Control (centered, cream) */
+  .exp-access{
+    background:#FAF8F4;
+    padding:112px 0;
+    border-top:1px solid rgba(14,24,61,0.08);
+  }
+  .exp-access-inner{
+    grid-column:1 / -1;
+    max-width:600px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .exp-access h2{
+    font-family:Inter,sans-serif;
+    font-size:48px;font-weight:500;
+    line-height:1.1;letter-spacing:-0.02em;
+    color:#0E1830;
+    margin:0 0 24px;
+  }
+  @media (max-width:768px){.exp-access h2{font-size:28px;}}
+  .exp-access p{
+    font-size:18px;line-height:1.6;
+    color:rgba(14,24,48,0.80);
+    margin:0 0 48px;
+  }
+
+  /* Section 8 — Final CTA (centered, cream) */
+  .exp-final{
+    background:#FAF8F4;
+    padding:128px 0 160px;
+  }
+  .exp-final-inner{
+    grid-column:1 / -1;
+    max-width:600px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .exp-final h2{
+    font-family:Inter,sans-serif;
+    font-size:48px;font-weight:500;
+    line-height:1.1;letter-spacing:-0.02em;
+    color:#0E1830;
+    margin:0 0 32px;
+  }
+  @media (max-width:768px){.exp-final h2{font-size:28px;}}
 </style>
 <link rel="stylesheet" href="image-system.css">
 </head>
@@ -1348,81 +1626,137 @@
   </ul>
 </div>
 
-<!-- HERO -->
-<section class="about-hero">
-  <div class="container">
-    <span class="eyebrow">Expansion</span>
-    <h1>Market Expansion Program.</h1>
-    <p>Supporting companies entering key halal markets.</p>
-  </div>
-</section>
+<!-- EXPANSION PAGE — Step 5.11.9 redesign (text-only, McKinsey capability page register) -->
 
-<!-- MARKETS -->
-<section class="foundation">
-  <div class="container">
-    <div class="grid">
-      <div>
-        <span class="eyebrow">Markets</span>
-        <h2>Where we operate.</h2>
-      </div>
-      <div class="foundation-text">
-        <p>Primary focus on:</p>
-        <p><strong>GCC</strong> — UAE, Qatar, Saudi Arabia.</p>
-        <p><strong>Malaysia</strong> — Southeast Asia anchor.</p>
-        <p><strong>Indonesia</strong> — the world's largest Muslim-majority market.</p>
+<!-- SECTION 1 — HERO (navy, centered) -->
+<section class="exp-hero exp-navy">
+  <div class="exp-grid">
+    <div class="exp-hero-inner">
+      <span class="exp-eyebrow">EXPANSION</span>
+      <h1>Market Expansion.</h1>
+      <p>Structured support for companies entering and scaling in key halal markets.</p>
+      <div class="cta-row">
+        <a href="request-access.html" class="btn btn-primary">Request Access</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHAT WE PROVIDE -->
-<section class="timeline">
-  <div class="container">
-    <div class="timeline-head">
-      <span class="eyebrow">What We Provide</span>
-      <h2>Practical support, end to end.</h2>
+<!-- SECTION 2 — POSITIONING (5/7 split, cream) -->
+<section class="exp-positioning exp-cream">
+  <div class="exp-grid">
+    <div class="exp-positioning-text">
+      <h2>Entering new markets is not a distribution problem.</h2>
     </div>
-
-    <div class="timeline-row">
-      <div class="timeline-text">
-        <span class="timeline-year">01</span>
-        <h3>Market entry strategy</h3>
-        <p>Regulatory pathways, market sizing, and entry approach across target geographies.</p>
-      </div>
-      <div class="timeline-media">
-        <img src="authority.jpg" alt="" />
-      </div>
+    <div class="exp-positioning-body">
+      <p>It is a coordination problem — across regulators, capital, and local partners.</p>
+      <p>Halalverse structures this process.</p>
     </div>
+  </div>
+</section>
 
-    <div class="timeline-row reverse">
-      <div class="timeline-text">
-        <span class="timeline-year">02</span>
-        <h3>Partner introductions</h3>
-        <p>Connections to local partners, distributors, regulators, and capital across active markets.</p>
-      </div>
-      <div class="timeline-media">
-        <img src="council/discussion.jpg" alt="" />
-      </div>
+<!-- SECTION 3 — MARKETS (3-col, cream) -->
+<section class="exp-markets exp-cream">
+  <div class="exp-grid">
+    <div class="exp-markets-head">
+      <h2>Where we operate.</h2>
     </div>
-
-    <div class="timeline-row">
-      <div class="timeline-text">
-        <span class="timeline-year">03</span>
-        <h3>Distribution support</h3>
-        <p>Infrastructure for placing products and services into the local market.</p>
+    <div class="exp-markets-grid">
+      <div class="exp-market">
+        <span class="exp-eyebrow">GCC</span>
+        <h3>UAE, Qatar, Saudi Arabia</h3>
+        <p>Regulatory access, capital alignment, institutional partnerships.</p>
       </div>
-      <div class="timeline-media">
-        <img src="council/value.jpg" alt="" />
+      <div class="exp-market">
+        <span class="exp-eyebrow">MALAYSIA</span>
+        <h3>Southeast Asia anchor</h3>
+        <p>Structured entry into a mature halal ecosystem.</p>
+      </div>
+      <div class="exp-market">
+        <span class="exp-eyebrow">INDONESIA</span>
+        <h3>Scale market</h3>
+        <p>Access to the world&rsquo;s largest Muslim-majority economy.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="final-statement">
-  <div class="container" style="text-align:center;">
-    <p>Work with Halalverse to expand into new markets.</p>
-    <div style="margin-top:32px;">
+<!-- SECTION 4 — CAPABILITIES (3-col, cream) -->
+<section class="exp-capabilities exp-cream">
+  <div class="exp-grid">
+    <div class="exp-capabilities-head">
+      <h2>What we structure.</h2>
+    </div>
+    <div class="exp-capabilities-grid">
+      <div class="exp-capability">
+        <h3>Market Entry Strategy</h3>
+        <p>Regulatory pathways, positioning, and go-to-market structure.</p>
+      </div>
+      <div class="exp-capability">
+        <h3>Partner Alignment</h3>
+        <p>Introductions to distributors, regulators, and ecosystem players.</p>
+      </div>
+      <div class="exp-capability">
+        <h3>Execution Support</h3>
+        <p>Ongoing coordination across stakeholders during rollout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 — PROCESS (3-step horizontal, cream) -->
+<section class="exp-process exp-cream">
+  <div class="exp-grid">
+    <div class="exp-process-head">
+      <h2>From entry to execution.</h2>
+    </div>
+    <div class="exp-process-row">
+      <div class="exp-step">
+        <span class="exp-step-num">STEP 01</span>
+        <h3>Discovery</h3>
+        <p>Market scan, regulatory mapping, competitive positioning.</p>
+      </div>
+      <div class="exp-step">
+        <span class="exp-step-num">STEP 02</span>
+        <h3>Structuring</h3>
+        <p>Partner identification, capital alignment, entry pathway design.</p>
+      </div>
+      <div class="exp-step">
+        <span class="exp-step-num">STEP 03</span>
+        <h3>Activation</h3>
+        <p>Rollout coordination, stakeholder management, ongoing support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 — DIFFERENTIATION (navy, centered narrow) -->
+<section class="exp-differentiation exp-navy">
+  <div class="exp-grid">
+    <div class="exp-differentiation-inner">
+      <h2>Not advisory. Not consulting.</h2>
+      <p>Halalverse operates as a structured market access layer &mdash; connecting capital, partners, and execution across regions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7 — ACCESS CONTROL (centered, cream) -->
+<section class="exp-access exp-cream">
+  <div class="exp-grid">
+    <div class="exp-access-inner">
+      <span class="exp-eyebrow">ACCESS</span>
+      <h2>Selective participation.</h2>
+      <p>Access is limited to companies with clear expansion intent and aligned market positioning.</p>
+      <a href="request-access.html" class="btn btn-primary">Request Access</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8 — FINAL CTA (centered, cream) -->
+<section class="exp-final exp-cream">
+  <div class="exp-grid">
+    <div class="exp-final-inner">
+      <h2>Expand into high-growth halal markets.</h2>
       <a href="request-access.html" class="btn btn-primary">Request Access</a>
     </div>
   </div>
