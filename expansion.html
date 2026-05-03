@@ -1369,29 +1369,40 @@
   }
   .exp-hero .cta-row{margin-top:48px;}
 
-  /* Section 2 — Positioning (5/7 split, cream) */
+  /* Section 2 — Positioning (6/6 split: text left, image right) */
   .exp-positioning{
     background:#FAF8F4;
     padding:128px 0;
   }
-  .exp-positioning-text{grid-column:1 / span 5;}
-  .exp-positioning-body{grid-column:6 / span 7;}
+  .exp-positioning-content{grid-column:1 / span 6;}
+  .exp-positioning-image{
+    grid-column:7 / span 6;
+    display:flex;
+    align-items:center;
+  }
+  .exp-positioning-image img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+  }
   @media (max-width:1023px){
-    .exp-positioning-text,.exp-positioning-body{grid-column:1 / -1;}
-    .exp-positioning-body{margin-top:32px;}
+    .exp-positioning-content,.exp-positioning-image{grid-column:1 / -1;}
+    .exp-positioning-image{margin-top:48px;}
   }
   .exp-positioning h2{
     font-family:Inter,sans-serif;
-    font-size:56px;font-weight:500;
+    font-size:44px;font-weight:500;
     line-height:1.1;letter-spacing:-0.02em;
     color:#0E1830;
-    margin:0;max-width:520px;
+    margin:0 0 32px;max-width:520px;
   }
-  @media (max-width:768px){.exp-positioning h2{font-size:32px;}}
+  @media (max-width:768px){.exp-positioning h2{font-size:28px;}}
   .exp-positioning-body p{
     font-size:18px;line-height:1.6;
     color:rgba(14,24,48,0.80);
-    margin:0;max-width:560px;
+    margin:0;max-width:520px;
   }
   .exp-positioning-body p + p{margin-top:24px;}
 
@@ -1642,15 +1653,18 @@
   </div>
 </section>
 
-<!-- SECTION 2 — POSITIONING (5/7 split, cream) -->
+<!-- SECTION 2 — POSITIONING (6/6 split: text left, image right) -->
 <section class="exp-positioning exp-cream">
   <div class="exp-grid">
-    <div class="exp-positioning-text">
+    <div class="exp-positioning-content">
       <h2>Entering new markets is not a distribution problem.</h2>
+      <div class="exp-positioning-body">
+        <p>It is a coordination problem — across regulators, capital, and local partners.</p>
+        <p>Halalverse structures this process.</p>
+      </div>
     </div>
-    <div class="exp-positioning-body">
-      <p>It is a coordination problem — across regulators, capital, and local partners.</p>
-      <p>Halalverse structures this process.</p>
+    <div class="exp-positioning-image">
+      <img src="pictures/S3-expansion.jpg" alt="" />
     </div>
   </div>
 </section>
