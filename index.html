@@ -896,6 +896,105 @@
     .footer-bottom{flex-direction:column;align-items:flex-start;gap:20px;}
     .footer-bottom-links{gap:24px;}
   }
+
+  /* ============================================================
+     STEP 5.11.12 — TRUST LOGO MARQUEE + HALALVERSE FILM
+     Pure-CSS infinite marquee replaces the static logo grid.
+     Two duplicated track sets translate -50% to loop seamlessly.
+     YouTube embed is lazy-loaded, no autoplay.
+     ============================================================ */
+  .hv-marquee{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);
+  }
+  .hv-marquee-track{
+    display:flex;
+    width:max-content;
+    animation:hv-marquee 60s linear infinite;
+  }
+  .hv-marquee:hover .hv-marquee-track{animation-play-state:paused;}
+  .hv-marquee-set{
+    display:flex;
+    flex-shrink:0;
+  }
+  .hv-marquee-cell{
+    width:140px;height:84px;
+    margin-right:48px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+    opacity:.92;
+    transition:opacity .2s ease;
+  }
+  .hv-marquee-cell img{
+    height:46px;max-width:120px;width:auto;
+    object-fit:contain;display:block;
+  }
+  .hv-marquee-cell:hover{opacity:1;}
+  @keyframes hv-marquee{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hv-marquee-track{animation:none;}
+  }
+  @media (max-width:768px){
+    .hv-marquee-track{animation-duration:80s;}
+    .hv-marquee-cell{width:100px;height:72px;margin-right:32px;}
+    .hv-marquee-cell img{height:40px;max-width:90px;}
+  }
+
+  /* Halalverse Film — full 16:9 anchor between trust and assemblies */
+  .hv-film{
+    background:#FAF8F4;
+    padding:120px 0;
+  }
+  @media (max-width:768px){.hv-film{padding:80px 0;}}
+  .hv-film-inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 40px;
+    text-align:center;
+  }
+  @media (max-width:768px){.hv-film-inner{padding:0 24px;}}
+  .hv-film-head{
+    max-width:700px;
+    margin:0 auto 64px;
+  }
+  @media (max-width:768px){.hv-film-head{margin-bottom:48px;}}
+  .hv-film-eyebrow{
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:#0E4D3F;
+    margin:0 0 24px;display:inline-block;
+  }
+  .hv-film-title{
+    font-family:Inter,sans-serif;
+    font-size:48px;font-weight:500;
+    line-height:1.1;letter-spacing:-0.02em;
+    color:#0E1830;
+    margin:0;
+  }
+  @media (max-width:768px){.hv-film-title{font-size:32px;}}
+  .hv-film-frame{
+    position:relative;
+    width:100%;
+    max-width:1000px;
+    margin:0 auto;
+    aspect-ratio:16 / 9;
+    background:#0E1830;
+    overflow:hidden;
+  }
+  .hv-film-frame iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
 </style>
 <link rel="stylesheet" href="image-system.css">
 </head>
@@ -981,29 +1080,73 @@
   </div>
 </section>
 
-<!-- TRUST -->
+<!-- TRUST — infinite marquee (Step 5.11.12) -->
 <section class="trust">
   <div class="container">
     <h3 class="trust-head reveal">Trusted by institutions and industry leaders across finance, trade, and technology.</h3>
-    <div class="logo-grid reveal">
-      <div class="logo-cell"><img src="attendees-logo/1.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/2.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/3.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/4.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/5.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/6.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/7.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/8.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/9.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/10.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/11.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/12.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/13.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/14.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/15.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/16.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/17.png" alt="" /></div>
-      <div class="logo-cell"><img src="attendees-logo/18.png" alt="" /></div>
+    <div class="hv-marquee reveal" aria-label="Partner organizations">
+      <div class="hv-marquee-track">
+        <div class="hv-marquee-set" aria-hidden="false">
+          <div class="hv-marquee-cell"><img src="attendees-logo/1.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/2.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/3.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/4.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/5.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/6.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/7.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/8.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/9.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/10.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/11.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/12.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/13.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/14.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/15.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/16.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/17.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/18.png" alt="" /></div>
+        </div>
+        <div class="hv-marquee-set" aria-hidden="true">
+          <div class="hv-marquee-cell"><img src="attendees-logo/1.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/2.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/3.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/4.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/5.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/6.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/7.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/8.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/9.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/10.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/11.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/12.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/13.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/14.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/15.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/16.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/17.png" alt="" /></div>
+          <div class="hv-marquee-cell"><img src="attendees-logo/18.png" alt="" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE FILM — Halalverse Movie (Step 5.11.12) -->
+<section class="hv-film">
+  <div class="hv-film-inner">
+    <div class="hv-film-head">
+      <p class="hv-film-eyebrow">The Film</p>
+      <h2 class="hv-film-title">Halalverse.</h2>
+    </div>
+    <div class="hv-film-frame">
+      <iframe
+        src="https://www.youtube.com/embed/4YodkYLDuQ0?rel=0&modestbranding=1&playsinline=1&controls=1&showinfo=0&iv_load_policy=3"
+        title="Halalverse"
+        frameborder="0"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
     </div>
   </div>
 </section>
