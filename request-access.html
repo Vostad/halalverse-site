@@ -1484,6 +1484,8 @@
     <div class="inquiry-inner">
       <form class="inquiry-form" method="POST" action="https://formspree.io/f/REPLACE_BEFORE_DEPLOY" data-formspree>
         <input type="hidden" name="_subject" value="Halalverse Access Request" />
+        <input type="hidden" name="request_type" value="" />
+        <input type="hidden" name="event_edition" value="" />
         <div>
           <label for="acc-name">Full Name</label>
           <input id="acc-name" name="name" type="text" autocomplete="name" required />
@@ -1640,6 +1642,43 @@
       div.textContent = msg;
       div.setAttribute('role', isError ? 'alert' : 'status');
       form.appendChild(div);
+    }
+  })();
+
+  // Step 5.11.4: query-string-aware form mode
+  // When ?type=event-report&edition=XX is present, switch the form into
+  // "Request Event Report" mode: update title/h1, prefill the textarea,
+  // set the hidden request_type + event_edition fields, and rewrite the
+  // Formspree subject line so submissions arrive distinctly.
+  (function(){
+    var params = new URLSearchParams(window.location.search);
+    var type = params.get('type');
+    var edition = params.get('edition');
+    if (type !== 'event-report' || !edition) return;
+
+    var safeEdition = String(edition).replace(/[^A-Za-z0-9 _-]/g, '').slice(0, 12);
+
+    var titleEl = document.querySelector('title');
+    if (titleEl) titleEl.textContent = 'Request Event Report — Halalverse';
+
+    var h1 = document.querySelector('.contact-hero h1');
+    if (h1) h1.textContent = 'Request Event Report.';
+
+    var heroP = document.querySelector('.contact-hero p');
+    if (heroP) heroP.textContent = 'Requesting the event report for Edition ' + safeEdition + '. Tell us a little about you and we will follow up.';
+
+    var subjectField = document.querySelector('input[name="_subject"]');
+    if (subjectField) subjectField.value = 'Halalverse Event Report Request — Edition ' + safeEdition;
+
+    var requestTypeField = document.querySelector('input[name="request_type"]');
+    if (requestTypeField) requestTypeField.value = 'event-report';
+
+    var editionField = document.querySelector('input[name="event_edition"]');
+    if (editionField) editionField.value = safeEdition;
+
+    var lookingFor = document.querySelector('textarea[name="looking_for"]');
+    if (lookingFor && !lookingFor.value) {
+      lookingFor.value = 'Requesting event report for Edition ' + safeEdition + '.';
     }
   })();
 </script>
