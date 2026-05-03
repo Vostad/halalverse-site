@@ -1,6 +1,6 @@
 {
-  "name": "Digital Finance Alliance",
-  "short_name": "DFA",
+  "name": "Halalverse",
+  "short_name": "Halalverse",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -14,6 +14,6 @@
     }
   ],
   "theme_color": "#0E1830",
-  "background_color": "#0E1830",
+  "background_color": "#FAF8F4",
   "display": "standalone"
 }
