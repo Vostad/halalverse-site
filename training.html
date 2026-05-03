@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Halalverse Executive Training Programs — focused programs for institutions and companies navigating the evolving halal economy." />
+<meta name="description" content="Structured executive training programs for companies and institutions operating in the global halal economy. Halalverse Training." />
 <meta property="og:title" content="Training — Halalverse" />
 <meta property="og:description" content="Practical programs for institutions and companies." />
 <meta property="og:image" content="/images/dfa/og-image.jpg" />
@@ -1301,6 +1301,330 @@
     .pillars{grid-template-columns:1fr;}
     .structures-head{flex-direction:column;align-items:flex-start;}
   }
+
+  /* ============================================================
+     TRAINING PAGE REDESIGN — Step 5.11.10
+     Text-led institutional layout. 12-col grid, navy bookends,
+     cream interior, ONE image (Section 5). Class prefix `tr-` to
+     avoid collision with `cap-`, `exp-`, and inherited classes.
+     Sibling treatment to capital.html (5.11.8) and expansion.html
+     (5.11.9).
+     ============================================================ */
+  .tr-grid{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 48px;
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    column-gap:32px;
+  }
+  @media (max-width:1023px){
+    .tr-grid{padding:0 32px;column-gap:24px;}
+  }
+  @media (max-width:767px){
+    .tr-grid{padding:0 20px;column-gap:16px;}
+  }
+
+  /* Eyebrow — racing green on cream */
+  .tr-cream .tr-eyebrow{
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:#0E4D3F;
+    margin:0 0 24px;display:inline-block;
+  }
+  /* Eyebrow — white-65% on navy per Step 5.10.2 contrast */
+  .tr-navy .tr-eyebrow{
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:rgba(255,255,255,0.65);
+    margin:0 0 32px;display:inline-block;
+  }
+
+  /* Section 1 — Hero (NAVY, centered) */
+  .tr-hero{
+    background:#0E1830;
+    padding:160px 0 128px;
+    color:#fff;
+  }
+  .tr-hero-inner{
+    grid-column:1 / -1;
+    max-width:640px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .tr-hero h1{
+    font-family:Inter,sans-serif;
+    font-size:64px;font-weight:500;
+    line-height:1.05;letter-spacing:-0.02em;
+    color:#fff;
+    margin:0 0 32px;
+  }
+  @media (max-width:768px){.tr-hero h1{font-size:40px;}}
+  .tr-hero p{
+    font-size:18px;line-height:1.55;
+    color:rgba(255,255,255,0.78);
+    max-width:560px;margin:0 auto;
+  }
+  .tr-hero .cta-row{margin-top:48px;}
+
+  /* Section 2 — Positioning (6/6 split: text left, empty right) */
+  .tr-positioning{
+    background:#FAF8F4;
+    padding:128px 0;
+  }
+  .tr-positioning-content{grid-column:1 / span 6;}
+  @media (max-width:1023px){
+    .tr-positioning-content{grid-column:1 / -1;}
+  }
+  .tr-positioning h2{
+    font-family:Inter,sans-serif;
+    font-size:44px;font-weight:500;
+    line-height:1.1;letter-spacing:-0.02em;
+    color:#0E1830;
+    margin:0 0 32px;max-width:520px;
+  }
+  @media (max-width:768px){.tr-positioning h2{font-size:28px;}}
+  .tr-positioning-body p{
+    font-size:18px;line-height:1.6;
+    color:rgba(14,24,48,0.80);
+    margin:0;max-width:520px;
+  }
+  .tr-positioning-body p + p{margin-top:24px;}
+
+  /* Section 3 — Program Intro (centered narrow) */
+  .tr-intro{
+    background:#FAF8F4;
+    padding:96px 0 48px;
+  }
+  .tr-intro-inner{
+    grid-column:1 / -1;
+    max-width:640px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .tr-intro h2{
+    font-family:Inter,sans-serif;
+    font-size:48px;font-weight:500;
+    line-height:1.1;letter-spacing:-0.02em;
+    color:#0E1830;
+    margin:0 0 24px;
+  }
+  @media (max-width:768px){.tr-intro h2{font-size:28px;}}
+  .tr-intro p{
+    font-size:18px;line-height:1.6;
+    color:rgba(14,24,48,0.80);
+    margin:0;
+  }
+
+  /* Section 4 — Program Cards */
+  .tr-programs{
+    background:#FAF8F4;
+    padding:48px 0 112px;
+  }
+  .tr-programs-grid{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    column-gap:24px;row-gap:24px;
+  }
+  @media (max-width:1023px){
+    .tr-programs-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:639px){
+    .tr-programs-grid{grid-template-columns:1fr;}
+  }
+  .tr-program{
+    background:#FFFFFF;
+    border:1px solid rgba(14,24,61,0.08);
+    padding:32px;
+    display:flex;flex-direction:column;
+  }
+  @media (max-width:639px){
+    .tr-program{padding:24px;}
+  }
+  .tr-program-num{
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:#0E4D3F;
+    margin:0 0 16px;display:block;
+  }
+  .tr-program h3{
+    font-family:Inter,sans-serif;
+    font-size:22px;font-weight:600;
+    line-height:1.2;letter-spacing:-0.018em;
+    color:#0E1830;
+    margin:0 0 16px;
+  }
+  @media (max-width:639px){.tr-program h3{font-size:20px;}}
+  .tr-program-desc{
+    font-size:16px;line-height:1.55;
+    color:rgba(14,24,48,0.80);
+    margin:0 0 24px;
+  }
+  .tr-bullets{
+    list-style:none;padding:0;margin:0;
+    border-top:1px solid rgba(14,24,61,0.08);
+    padding-top:16px;
+  }
+  .tr-bullets li{
+    position:relative;
+    padding-left:18px;
+    font-size:14px;line-height:1.5;
+    color:rgba(14,24,48,0.75);
+  }
+  @media (max-width:639px){.tr-bullets li{font-size:13px;}}
+  .tr-bullets li + li{margin-top:10px;}
+  .tr-bullets li::before{
+    content:"";
+    position:absolute;
+    left:0;top:9px;
+    width:5px;height:5px;
+    background:#0E1830;
+    border-radius:0;
+  }
+  .tr-programs-cta{
+    grid-column:1 / -1;
+    text-align:center;
+    margin-top:64px;
+  }
+
+  /* Section 5 — Custom Training (6/6 split with image) */
+  .tr-custom{
+    background:#FAF8F4;
+    padding:112px 0;
+    border-top:1px solid rgba(14,24,61,0.08);
+  }
+  .tr-custom-content{grid-column:1 / span 6;}
+  .tr-custom-image{
+    grid-column:7 / span 6;
+    display:flex;
+    align-items:center;
+  }
+  .tr-custom-image img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+  }
+  @media (max-width:1023px){
+    .tr-custom-content,.tr-custom-image{grid-column:1 / -1;}
+    .tr-custom-image{margin-top:48px;}
+  }
+  .tr-custom h2{
+    font-family:Inter,sans-serif;
+    font-size:48px;font-weight:500;
+    line-height:1.1;letter-spacing:-0.02em;
+    color:#0E1830;
+    margin:0 0 32px;max-width:520px;
+  }
+  @media (max-width:768px){.tr-custom h2{font-size:28px;}}
+  .tr-custom-body p{
+    font-size:18px;line-height:1.6;
+    color:rgba(14,24,48,0.80);
+    margin:0;max-width:520px;
+  }
+  .tr-custom-body p + p{margin-top:24px;}
+  .tr-custom-list{
+    list-style:none;padding:0;
+    margin:32px 0 48px;
+    border-top:1px solid rgba(14,24,61,0.10);
+  }
+  .tr-custom-list li{
+    padding:16px 0;
+    border-bottom:1px solid rgba(14,24,61,0.10);
+    font-size:16px;line-height:1.4;
+    color:#0E1830;
+    font-weight:500;
+  }
+
+  /* Section 6 — Delivery Format (3-col text) */
+  .tr-delivery{
+    background:#FAF8F4;
+    padding:96px 0;
+    border-top:1px solid rgba(14,24,61,0.08);
+  }
+  .tr-delivery-head{grid-column:1 / -1;margin:0 0 48px;}
+  .tr-delivery h2{
+    font-family:Inter,sans-serif;
+    font-size:48px;font-weight:500;
+    line-height:1.1;letter-spacing:-0.02em;
+    color:#0E1830;
+    margin:0;max-width:520px;
+  }
+  @media (max-width:768px){.tr-delivery h2{font-size:28px;}}
+  .tr-delivery-grid{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    column-gap:48px;row-gap:48px;
+    padding-top:48px;
+    border-top:1px solid rgba(14,24,61,0.10);
+  }
+  @media (max-width:1023px){
+    .tr-delivery-grid{grid-template-columns:1fr;column-gap:0;}
+  }
+  .tr-delivery-item h3{
+    font-family:Inter,sans-serif;
+    font-size:22px;font-weight:600;
+    line-height:1.2;letter-spacing:-0.018em;
+    color:#0E1830;
+    margin:0 0 16px;
+  }
+  .tr-delivery-item p{
+    font-size:16px;line-height:1.6;
+    color:rgba(14,24,48,0.75);
+    margin:0;
+  }
+
+  /* Section 7 — Differentiation (NAVY, centered narrow) */
+  .tr-differentiation{
+    background:#0E1830;
+    padding:128px 0;
+    color:#fff;
+  }
+  .tr-differentiation-inner{
+    grid-column:1 / -1;
+    max-width:700px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .tr-differentiation h2{
+    font-family:Inter,sans-serif;
+    font-size:40px;font-weight:500;
+    line-height:1.15;letter-spacing:-0.02em;
+    color:#fff;
+    margin:0 0 32px;
+  }
+  @media (max-width:768px){.tr-differentiation h2{font-size:24px;}}
+  .tr-differentiation p{
+    font-size:18px;line-height:1.6;
+    color:rgba(255,255,255,0.78);
+    margin:0 auto;max-width:560px;
+  }
+
+  /* Section 8 — Final CTA (centered, cream) */
+  .tr-final{
+    background:#FAF8F4;
+    padding:128px 0 160px;
+  }
+  .tr-final-inner{
+    grid-column:1 / -1;
+    max-width:600px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .tr-final h2{
+    font-family:Inter,sans-serif;
+    font-size:48px;font-weight:500;
+    line-height:1.1;letter-spacing:-0.02em;
+    color:#0E1830;
+    margin:0 0 32px;
+  }
+  @media (max-width:768px){.tr-final h2{font-size:28px;}}
 </style>
 <link rel="stylesheet" href="image-system.css">
 </head>
@@ -1348,85 +1672,168 @@
   </ul>
 </div>
 
-<!-- HERO -->
-<section class="about-hero">
-  <div class="container">
-    <span class="eyebrow">Training</span>
-    <h1>Executive Training Programs.</h1>
-    <p>Practical programs for institutions and companies.</p>
+<!-- SECTION 1 — HERO (NAVY) -->
+<section class="tr-hero tr-navy">
+  <div class="tr-grid">
+    <div class="tr-hero-inner">
+      <span class="tr-eyebrow">Training</span>
+      <h1>Executive Training Programs.</h1>
+      <p>Structured programs designed for companies, institutions, and leadership teams operating in the global halal economy.</p>
+      <div class="cta-row">
+        <a href="request-access.html" class="btn btn-primary">Request Access</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- PROGRAMS -->
-<section class="timeline">
-  <div class="container">
-    <div class="timeline-head">
-      <span class="eyebrow">Programs</span>
+<!-- SECTION 2 — POSITIONING -->
+<section class="tr-positioning tr-cream">
+  <div class="tr-grid">
+    <div class="tr-positioning-content">
+      <h2>Training is not about information.</h2>
+      <div class="tr-positioning-body">
+        <p>It is about capability.</p>
+        <p>Halalverse programs are designed to align leadership, teams, and execution with real-world market shifts across finance, technology, and regulation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 — PROGRAM INTRO -->
+<section class="tr-intro tr-cream">
+  <div class="tr-grid">
+    <div class="tr-intro-inner">
       <h2>Five focused programs.</h2>
+      <p>Each program is designed as a structured, practical engagement — not theoretical learning.</p>
     </div>
+  </div>
+</section>
 
-    <div class="timeline-row">
-      <div class="timeline-text">
-        <span class="timeline-year">01</span>
+<!-- SECTION 4 — PROGRAM CARDS -->
+<section class="tr-programs tr-cream">
+  <div class="tr-grid">
+    <div class="tr-programs-grid">
+      <article class="tr-program">
+        <span class="tr-program-num">01</span>
         <h3>Islamic Finance in the Digital Age</h3>
-        <p>Digital banking, fintech models, and evolving frameworks.</p>
-      </div>
-      <div class="timeline-media">
-        <img src="authority.jpg" alt="" />
-      </div>
-    </div>
+        <p class="tr-program-desc">Modern frameworks for digital banking, fintech, and financial infrastructure.</p>
+        <ul class="tr-bullets">
+          <li>Digital Islamic banking models</li>
+          <li>Fintech and compliance frameworks</li>
+          <li>Emerging financial ecosystems</li>
+        </ul>
+      </article>
 
-    <div class="timeline-row reverse">
-      <div class="timeline-text">
-        <span class="timeline-year">02</span>
+      <article class="tr-program">
+        <span class="tr-program-num">02</span>
         <h3>AI &amp; Automation for Halal Businesses</h3>
-        <p>Applications across operations, compliance, and growth.</p>
-      </div>
-      <div class="timeline-media">
-        <img src="council/discussion.jpg" alt="" />
-      </div>
-    </div>
+        <p class="tr-program-desc">Applying AI across operations, compliance, and growth.</p>
+        <ul class="tr-bullets">
+          <li>Process automation</li>
+          <li>AI in compliance and verification</li>
+          <li>Operational efficiency</li>
+        </ul>
+      </article>
 
-    <div class="timeline-row">
-      <div class="timeline-text">
-        <span class="timeline-year">03</span>
-        <h3>Blockchain &amp; Tokenization in Islamic Finance</h3>
-        <p>Infrastructure, assets, and digital finance systems.</p>
-      </div>
-      <div class="timeline-media">
-        <img src="council/value.jpg" alt="" />
-      </div>
-    </div>
+      <article class="tr-program">
+        <span class="tr-program-num">03</span>
+        <h3>Blockchain &amp; Tokenization</h3>
+        <p class="tr-program-desc">Infrastructure for digital assets and real-world tokenization.</p>
+        <ul class="tr-bullets">
+          <li>Asset tokenization models</li>
+          <li>Smart contracts and systems</li>
+          <li>Regulatory considerations</li>
+        </ul>
+      </article>
 
-    <div class="timeline-row reverse">
-      <div class="timeline-text">
-        <span class="timeline-year">04</span>
-        <h3>Cross-Border Halal Market Expansion</h3>
-        <p>Entry strategies across GCC and Southeast Asia.</p>
-      </div>
-      <div class="timeline-media">
-        <img src="images/discussion-01.jpg" alt="" />
-      </div>
-    </div>
+      <article class="tr-program">
+        <span class="tr-program-num">04</span>
+        <h3>Cross-Border Market Expansion</h3>
+        <p class="tr-program-desc">Entering and scaling across GCC and Southeast Asia.</p>
+        <ul class="tr-bullets">
+          <li>Market entry frameworks</li>
+          <li>Distribution and partnerships</li>
+          <li>Regulatory navigation</li>
+        </ul>
+      </article>
 
-    <div class="timeline-row">
-      <div class="timeline-text">
-        <span class="timeline-year">05</span>
+      <article class="tr-program">
+        <span class="tr-program-num">05</span>
         <h3>Halal Compliance &amp; Digital Certification Systems</h3>
-        <p>Modern approaches to compliance and verification.</p>
+        <p class="tr-program-desc">Modern compliance infrastructure and verification.</p>
+        <ul class="tr-bullets">
+          <li>Certification frameworks</li>
+          <li>Digital compliance systems</li>
+          <li>Trust and audit layers</li>
+        </ul>
+      </article>
+    </div>
+    <div class="tr-programs-cta">
+      <a href="request-access.html" class="btn btn-primary">Request program details</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 — CUSTOM TRAINING -->
+<section class="tr-custom tr-cream">
+  <div class="tr-grid">
+    <div class="tr-custom-content">
+      <h2>Built for your organization.</h2>
+      <div class="tr-custom-body">
+        <p>Programs can be customized based on your industry, market focus, and internal capability gaps.</p>
+        <p>We design training engagements for leadership teams, operational units, and strategic functions.</p>
       </div>
-      <div class="timeline-media">
-        <img src="images/discussion-02.jpg" alt="" />
+      <ul class="tr-custom-list">
+        <li>Leadership workshops</li>
+        <li>Department-level programs</li>
+        <li>Multi-day executive sessions</li>
+      </ul>
+      <a href="request-access.html" class="btn btn-primary">Discuss your requirements</a>
+    </div>
+    <div class="tr-custom-image">
+      <img src="pictures/training.jpg" alt="" />
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 — DELIVERY FORMAT -->
+<section class="tr-delivery tr-cream">
+  <div class="tr-grid">
+    <div class="tr-delivery-head">
+      <h2>How we deliver.</h2>
+    </div>
+    <div class="tr-delivery-grid">
+      <div class="tr-delivery-item">
+        <h3>In-person</h3>
+        <p>On-site executive sessions and workshops.</p>
+      </div>
+      <div class="tr-delivery-item">
+        <h3>Private cohorts</h3>
+        <p>Closed group programs for leadership teams.</p>
+      </div>
+      <div class="tr-delivery-item">
+        <h3>Hybrid</h3>
+        <p>Blended learning with structured sessions.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="final-statement">
-  <div class="container" style="text-align:center;">
-    <p>Request program details and participation options.</p>
-    <div style="margin-top:32px;">
+<!-- SECTION 7 — DIFFERENTIATION (NAVY) -->
+<section class="tr-differentiation tr-navy">
+  <div class="tr-grid">
+    <div class="tr-differentiation-inner">
+      <h2>Not education. Execution alignment.</h2>
+      <p>Halalverse training programs are built around real-world application — ensuring teams can operate, not just understand.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8 — FINAL CTA -->
+<section class="tr-final tr-cream">
+  <div class="tr-grid">
+    <div class="tr-final-inner">
+      <h2>Request program details and access.</h2>
       <a href="request-access.html" class="btn btn-primary">Request Access</a>
     </div>
   </div>
