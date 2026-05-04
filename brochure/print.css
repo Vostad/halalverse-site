@@ -1,0 +1,518 @@
+/* ============================================================
+   HALALVERSE × QATAR FINANCIAL CENTRE — STRATEGIC PROPOSAL
+   Print stylesheet, A4 portrait, 16 pages.
+   Mirrors website design tokens.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --navy: #0E1830;
+  --cream: #FAF8F4;
+  --white: #FFFFFF;
+  --racing-green: #0E4D3F;
+  --navy-90: rgba(14, 24, 61, 0.9);
+  --navy-80: rgba(14, 24, 61, 0.8);
+  --navy-70: rgba(14, 24, 61, 0.7);
+  --navy-60: rgba(14, 24, 61, 0.6);
+  --navy-50: rgba(14, 24, 61, 0.5);
+  --navy-15: rgba(14, 24, 61, 0.15);
+  --navy-10: rgba(14, 24, 61, 0.10);
+  --navy-08: rgba(14, 24, 61, 0.08);
+  --white-65: rgba(255, 255, 255, 0.65);
+  --white-75: rgba(255, 255, 255, 0.75);
+  --white-50: rgba(255, 255, 255, 0.50);
+  --font-sans: 'Inter', 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Menlo', monospace;
+}
+
+@page {
+  size: A4;
+  margin: 20mm;
+}
+@page :first {
+  margin: 0;
+}
+@page navy {
+  margin: 0;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--navy-80);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'ss01', 'cv11';
+}
+
+img { max-width: 100%; display: block; }
+
+/* ---------- PAGES ---------- */
+.page {
+  width: 170mm;
+  min-height: 257mm;
+  page-break-after: always;
+  page-break-inside: avoid;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.page:last-child { page-break-after: auto; }
+
+.page.full-bleed {
+  width: 210mm;
+  height: 297mm;
+  margin: 0;
+  padding: 24mm;
+  page: navy;
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy-70);
+  margin: 0 0 24px;
+  display: block;
+}
+.full-bleed .eyebrow { color: var(--white-65); }
+.eyebrow.green { color: var(--racing-green); }
+
+h1 {
+  font-family: var(--font-sans);
+  font-size: 56px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--navy);
+  margin: 0;
+}
+.full-bleed h1 { color: var(--white); }
+
+h2 {
+  font-family: var(--font-sans);
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.18;
+  color: var(--navy);
+  margin: 0 0 24px;
+}
+
+h3 {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+
+p {
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--navy-80);
+}
+p.lead { font-size: 14px; color: var(--navy-90); }
+p:last-child { margin-bottom: 0; }
+
+ul.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+ul.bullets li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--navy-80);
+  margin-bottom: 8px;
+}
+ul.bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 8px;
+  width: 4px; height: 4px;
+  background: var(--navy);
+}
+.full-bleed ul.bullets li { color: var(--white-75); }
+.full-bleed ul.bullets li::before { background: var(--white); }
+
+/* Arrow callouts (→ lines) */
+.arrow-line {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.4;
+  margin: 8px 0;
+}
+.arrow-line.large {
+  font-size: 20px;
+  font-weight: 500;
+}
+.arrow-line.mono {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Hairline divider */
+.divider {
+  height: 1px;
+  background: var(--navy-15);
+  margin: 32px 0;
+  border: 0;
+}
+.full-bleed .divider { background: var(--white-50); opacity: 0.3; }
+
+/* ---------- COVER (page 1) ---------- */
+.cover {
+  justify-content: flex-start;
+}
+.cover-logo {
+  margin-top: 60mm;
+  display: flex;
+  justify-content: center;
+}
+.cover-logo img { height: 80px; width: auto; filter: brightness(0) invert(1); }
+.cover-title-block {
+  margin-top: 28mm;
+  text-align: center;
+}
+.cover-title-block .eyebrow {
+  letter-spacing: 0.18em;
+  margin-bottom: 24px;
+}
+.cover-title-block h1 {
+  font-size: 52px;
+  margin: 0 0 16px;
+}
+.cover-title-block .subtitle {
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--white-75);
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+.cover-footer {
+  position: absolute;
+  bottom: 24mm;
+  left: 24mm;
+  right: 24mm;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white-50);
+}
+
+/* ---------- TIMELINE GRID (page 3) ---------- */
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 8mm;
+  row-gap: 4mm;
+  margin-top: 12px;
+}
+.timeline-card {
+  display: flex;
+  flex-direction: column;
+}
+.timeline-card .card-img {
+  aspect-ratio: 3 / 2;
+  width: 100%;
+  background: var(--navy-08);
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.timeline-card .card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.timeline-card .card-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--racing-green);
+  margin-bottom: 4px;
+}
+.timeline-card .card-title {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: 2px;
+}
+.timeline-card .card-meta {
+  font-family: var(--font-sans);
+  font-size: 9.5px;
+  color: var(--navy-60);
+  line-height: 1.3;
+}
+
+/* ---------- TWO-COLUMN BLOCK ---------- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  column-gap: 24px;
+  margin-top: 8px;
+}
+.two-col .vrule {
+  background: var(--navy-15);
+  width: 1px;
+}
+.two-col h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--navy);
+}
+
+/* ---------- CARDS GRID (page 9) ---------- */
+.cards-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+.cap-card {
+  border: 1px solid var(--navy-15);
+  padding: 16px;
+}
+.cap-card .cap-title {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.cap-card .cap-body {
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--navy-80);
+}
+
+/* ---------- FORUM CARDS (page 7) ---------- */
+.forum-stack { margin: 12px 0 16px; }
+.forum-card {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--navy-15);
+}
+.forum-card:first-child { border-top: 1px solid var(--navy-15); }
+.forum-card .f-title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.forum-card .f-row {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--navy-80);
+  margin-bottom: 4px;
+}
+.forum-card .f-row .f-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy-60);
+  margin-right: 6px;
+}
+
+/* ---------- DELIVERS BLOCKS (page 11) ---------- */
+.delivers-list { margin: 8px 0 24px; }
+.deliver-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  column-gap: 24px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--navy-15);
+}
+.deliver-row:first-child { border-top: 1px solid var(--navy-15); }
+.deliver-row .d-title {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+}
+.deliver-row .d-body {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--navy-80);
+}
+
+/* ---------- LOOP STRIP (page 7) ---------- */
+.loop-strip {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--navy-08);
+  padding: 18px 16px;
+  text-align: center;
+  margin: 16px 0 24px;
+  line-height: 1.6;
+}
+
+/* ---------- ECOSYSTEM DIAGRAM (page 8) ---------- */
+.diagram-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+}
+.diagram-wrap svg { width: 150mm; height: auto; }
+.diagram-caption {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy-60);
+  text-align: center;
+  margin-top: 24px;
+  line-height: 1.5;
+}
+
+/* ---------- COMMERCIAL MODEL (page 14) ---------- */
+.model-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 12px 0 24px;
+}
+.model-card {
+  border: 1px solid var(--navy-15);
+  padding: 20px;
+  position: relative;
+}
+.model-card.recommended {
+  border: 1.5px solid var(--racing-green);
+}
+.model-card .badge {
+  position: absolute;
+  top: 12px; right: 12px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--racing-green);
+  border: 1px solid var(--racing-green);
+  padding: 3px 8px;
+}
+.model-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding-right: 80px;
+}
+.model-card p { font-size: 12px; }
+.model-card ul.bullets li { font-size: 11.5px; margin-bottom: 6px; }
+.value-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  margin-top: 8px;
+}
+.value-cols .arrow-line { font-size: 14px; margin: 6px 0; }
+.value-cols .right .arrow-line { color: var(--navy-60); }
+
+/* ---------- NUMBERED LIST (page 15) ---------- */
+.numbered-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+.numbered-list li {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--navy-15);
+}
+.numbered-list li:first-child { border-top: 1px solid var(--navy-15); }
+.numbered-list li .num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--racing-green);
+}
+.numbered-list li .label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+/* ---------- CLOSING (page 16) ---------- */
+.closing {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.closing-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  max-width: 160mm;
+}
+.closing-inner img { height: 80px; width: auto; filter: brightness(0) invert(1); margin-bottom: 64px; }
+.closing-inner .eyebrow { letter-spacing: 0.18em; margin-bottom: 24px; }
+.closing-inner h1 {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 40px;
+}
+.closing-inner .closing-sub {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--white-75);
+  line-height: 1.55;
+  max-width: 130mm;
+  margin: 0 auto;
+}
+.closing-footer {
+  position: absolute;
+  bottom: 24mm;
+  left: 24mm;
+  right: 24mm;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white-50);
+}
+
+/* ---------- PAGE 16 (NEXT STEPS): combined ---------- */
+.section-block { margin-bottom: 24px; }
